@@ -40,20 +40,7 @@ export class MenuConfig {
 					page: 'dashboard',
 					translate: 'MENU.DASHBOARD',
 					bullet: 'dot',
-				},
-				{
-					title: 'Layout Builder',
-					root: true,
-					icon: 'flaticon2-expand',
-					page: 'builder'
-				},
-				{section: 'Custom'},
-				{
-					title: 'Custom Link',
-					root: true,
-					icon: 'flaticon2-link',
-					bullet: 'dot',
-				},
+				}
 			]
 		},
 	};
