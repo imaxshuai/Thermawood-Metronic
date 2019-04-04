@@ -368,7 +368,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 			return result;
 		}
 
-		result = `Edit Quote - ${this.product.model}, ${this.product.modelYear}`;
+		result = `${this.product.model}, ${this.product.modelYear}`;
 		return result;
 	}
 
