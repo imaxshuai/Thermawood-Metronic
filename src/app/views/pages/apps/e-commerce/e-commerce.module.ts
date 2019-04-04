@@ -118,7 +118,7 @@ const routes: Routes = [
 				component: ProductEditComponent
 			},
 			{
-				path: 'prodquotesucts/edit',
+				path: 'quotes/edit',
 				component: ProductEditComponent
 			},
 			{

@@ -106,7 +106,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
 		this.subscriptions.push(searchSubscription);
 
 		// Set title to page breadCrumbs
-		this.subheaderService.setTitle('Products');
+		this.subheaderService.setTitle('All Quotes');
 
 		// Init DataSource
 		this.dataSource = new ProductsDataSource(this.store);
@@ -314,7 +314,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
 	 * @param id: any
 	 */
 	editProduct(id) {
-		this.router.navigate(['../products/edit', id], { relativeTo: this.activatedRoute });
+		this.router.navigate(['../quotes/edit', id], { relativeTo: this.activatedRoute });
 	}
 
 	/**

@@ -348,7 +348,7 @@ export class MenuConfig {
 				{
 					title: 'quotes',
 					root: true,
-					icon: 'flaticon2-architecture-and-city',
+					icon: 'fa fa-dollar-sign',
 					page: 'quotes',
 					translate: 'MENU.DASHBOARD',
 					bullet: 'dot',
