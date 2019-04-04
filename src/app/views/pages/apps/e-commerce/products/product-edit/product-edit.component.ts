@@ -144,17 +144,15 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 		this.loadingSubject.next(false);
 		if (!this.product.id) {
 			this.subheaderService.setBreadcrumbs([
-				{ title: 'eCommerce', page: `../${prefix}/ecommerce` },
-				{ title: 'Products',  page: `../${prefix}/ecommerce/products` },
-				{ title: 'Create product', page: `../${prefix}/ecommerce/products/add` }
+				{ title: 'Quotes',  page: `../${prefix}/quotes` },
+				{ title: 'Create Quotes', page: `../${prefix}/quotes/add` }
 			]);
 			return;
 		}
-		this.subheaderService.setTitle('Edit product');
+		this.subheaderService.setTitle('Edit Quotes');
 		this.subheaderService.setBreadcrumbs([
-			{ title: 'eCommerce', page: `../${prefix}/ecommerce` },
-			{ title: 'Products',  page: `../${prefix}/ecommerce/products` },
-			{ title: 'Edit product', page: `../${prefix}/ecommerce/products/edit`, queryParams: { id: this.product.id } }
+			{ title: 'Quotes',  page: `../${prefix}/quotes` },
+			{ title: 'Edit Quotes', page: `../${prefix}/quotes/edit`, queryParams: { id: this.product.id } }
 		]);
 	}
 
@@ -365,12 +363,12 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 	 * Returns component title
 	 */
 	getComponentTitle() {
-		let result = 'Create product';
+		let result = 'Create Quote';
 		if (!this.product || !this.product.id) {
 			return result;
 		}
 
-		result = `Edit product - ${this.product.manufacture} ${this.product.model}, ${this.product.modelYear}`;
+		result = `Edit Quote - ${this.product.model}, ${this.product.modelYear}`;
 		return result;
 	}
 

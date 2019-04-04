@@ -193,10 +193,10 @@ export class PageConfig {
 			},
 			quotes: {
 				edit: {
-					page: {title: 'Edit product', desc: ''}
+					page: {title: 'Edit Quote', desc: ''}
 				},
 				add: {
-					page: {title: 'Create product', desc: ''}
+					page: {title: 'Create Quote', desc: ''}
 				}
 			},
 			orders: {
