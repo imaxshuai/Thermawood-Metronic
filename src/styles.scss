@@ -13,7 +13,7 @@ $primary-deep-color:#005734;
             background-color: $primary-color !important;
             .kt-aside__brand-logo{
                 img{
-                    width:150px;
+                    width:170px;
                 }
                 
             }
@@ -38,4 +38,22 @@ $primary-deep-color:#005734;
 }
 .kt-aside .kt-aside-menu>.kt-menu__nav .kt-menu__item>.kt-menu__link:not(.kt-menu__link--active):not(.kt-menu__link--here):not(.kt-menu__link--hover) [class^="flaticon2-"], .kt-aside .kt-aside-menu>.kt-menu__nav .kt-menu__item>.kt-menu__link:not(.kt-menu__link--active):not(.kt-menu__link--here):not(.kt-menu__link--hover) [class*=" flaticon2-"]{
     color: white !important;
+}
+.kt-aside-close:hover,.kt-header-menu-wrapper-close:hover{
+    background: $primary-color !important;
+}
+.kt-header .kt-header__topbar .kt-header__topbar-item .kt-header__topbar-icon svg g [fill]{
+    fill: $primary-color !important;
+}
+.add-new,.add-new:hover{
+    background: $primary-color !important;
+    color:white !important
+}
+.btn-outline-brand{
+    color: $primary-color !important;
+    border-color: $primary-color !important;
+}
+.btn-outline-brand:hover{
+    background: $primary-color !important;
+    color:white !important
 }

@@ -1,12 +1,12 @@
 export class DataTableItemModel {
     id: number;
 	cModel: string;
-	cManufacture: string;
-	cModelYear: number;
-	cMileage: number;
+	cManufacture: number;
+	cModelYear: string;
+	cMileage: string;
 	cDescription: string;
 	cColor: string;
-	cPrice: number;
+	cPrice: string;
 	cCondition: number;
 	cStatus: number;
     cVINCode: string;

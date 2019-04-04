@@ -22,7 +22,7 @@ import { DataTableDataSource } from './data-table.data-source';
 export class DataTableComponent implements OnInit {
 	// Public properties
 	dataSource: DataTableDataSource;
-	displayedColumns = ['id', 'cManufacture', 'cModel', 'cMileage', 'cColor', 'cPrice', 'cCondition', 'cStatus', 'actions' ];
+	displayedColumns = ['id', 'cManufacture', 'cModelYear','cModel', 'cMileage', 'cColor', 'cPrice', 'actions' ];
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild(MatSort) sort: MatSort;
 	selection = new SelectionModel<DataTableItemModel>(true, []);

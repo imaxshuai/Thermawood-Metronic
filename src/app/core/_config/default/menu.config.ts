@@ -34,7 +34,7 @@ export class MenuConfig {
 			self: {},
 			items: [
 				{
-					title: 'Dashboard',
+					title: 'All Quotes',
 					root: true,
 					icon: 'flaticon2-architecture-and-city',
 					page: 'dashboard',
