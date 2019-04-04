@@ -2,9 +2,12 @@ export class PageConfig {
 	public defaults: any = {
 		'dashboard': {
 			page: {
-				'title': 'All Quotes',
+				'title': 'Dashboard',
 				'desc': 'Latest updates and statistic charts'
 			}
+		},
+		'my-page': { // <= add page URL
+			page: { title: 'My page', desc: 'My page desc' } // <= Page name and description
 		},
 		ngbootstrap: {
 			accordion: {

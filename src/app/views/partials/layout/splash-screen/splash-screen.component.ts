@@ -41,7 +41,7 @@ export class SplashScreenComponent implements OnInit {
 	ngOnInit() {
 		// init splash screen, see loader option in layout.config.ts
 		const loaderConfig = this.layoutConfigService.getConfig('loader');
-		this.loaderLogo = 'assets/thermawood-logo-resize.png';//objectPath.get(loaderConfig, 'logo');
+		this.loaderLogo = objectPath.get(loaderConfig, 'logo');
 		this.loaderType = objectPath.get(loaderConfig, 'type');
 		this.loaderMessage = objectPath.get(loaderConfig, 'message');
 

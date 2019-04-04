@@ -37,7 +37,7 @@ export class HeaderMobileComponent implements OnInit {
 	 * On init
 	 */
 	ngOnInit() {
-		this.headerLogo = 'assets/thermawood-logo-resize.png';//this.layoutConfigService.getLogo();
+		this.headerLogo = this.layoutConfigService.getLogo();
 		this.asideDisplay = this.layoutConfigService.getConfig('aside.self.display');
 	}
 }

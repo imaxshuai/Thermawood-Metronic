@@ -38,7 +38,7 @@ export class BrandComponent implements OnInit, AfterViewInit {
 	 * On init
 	 */
 	ngOnInit(): void {
-		this.headerLogo = 'assets/thermawood-logo.png'//this.layoutConfigService.getLogo();
+		this.headerLogo = this.layoutConfigService.getLogo();
 		this.headerStickyLogo = this.layoutConfigService.getStickyLogo();
 	}
 

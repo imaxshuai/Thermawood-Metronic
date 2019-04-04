@@ -2,12 +2,9 @@
 	<div ngbDropdownToggle class="kt-header__topbar-wrapper">
 		<div class="kt-header__topbar-user">
 			<span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
-			<span class="kt-header__topbar-username kt-hidden-mobile">
-				<!-- {{_user.fullname}} -->
-				Ronnie
-			</span>
+			<span class="kt-header__topbar-username kt-hidden-mobile">{{_user.fullname}}</span>
 			<img [hidden]="true" alt="Pic" [attr.src]="_user.pic">
-			<!-- <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">{{_user.fullname|firstLetter}}</span> -->
+			<span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">{{_user.fullname|firstLetter}}</span>
 		</div>
 	</div>
 	<div ngbDropdownMenu class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
@@ -41,7 +38,7 @@
 					</div>
 				</div>
 			</a>
-			<!-- <a routerLink="profile" href="javascript:;" class="kt-notification__item">
+			<a routerLink="profile" href="javascript:;" class="kt-notification__item">
 				<div class="kt-notification__item-icon">
 					<i class="flaticon2-mail kt-font-warning"></i>
 				</div>
@@ -79,7 +76,7 @@
 						latest tasks and projects
 					</div>
 				</div>
-			</a> -->
+			</a>
 			<div class="kt-notification__custom">
 				<a href="javascript:;" (click)="logout()" class="btn btn-outline-brand btn-upper btn-sm btn-bold">Sign Out</a>
 			</div>
