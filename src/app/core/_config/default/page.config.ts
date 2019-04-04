@@ -191,7 +191,7 @@ export class PageConfig {
 			customers: {
 				page: {title: 'Customers', desc: ''}
 			},
-			products: {
+			quotes: {
 				edit: {
 					page: {title: 'Edit product', desc: ''}
 				},

@@ -17,6 +17,17 @@ const routes: Routes = [
 		canActivate: [AuthGuard],
 		children: [
 			{
+				path: '',
+				loadChildren: 'app/views/pages/apps/e-commerce/e-commerce.module#ECommerceModule',
+				// canActivate: [NgxPermissionsGuard],
+				// data: {
+				//  	permissions: {
+				//  		only: ['accessToECommerceModule'],
+				//  		redirectTo: 'error/403'
+				// 	}
+				// }
+			},
+			{
 				path: 'dashboard',
 				loadChildren: 'app/views/pages/dashboard/dashboard.module#DashboardModule'
 			},{
@@ -27,17 +38,7 @@ const routes: Routes = [
 				path: 'mail',
 				loadChildren: 'app/views/pages/apps/mail/mail.module#MailModule'
 			},
-			{
-				path: 'ecommerce',
-				loadChildren: 'app/views/pages/apps/e-commerce/e-commerce.module#ECommerceModule',
-				// canActivate: [NgxPermissionsGuard],
-				// data: {
-				//  	permissions: {
-				//  		only: ['accessToECommerceModule'],
-				//  		redirectTo: 'error/403'
-				// 	}
-				// }
-			},
+		
 			{
 				path: 'ngbootstrap',
 				loadChildren: 'app/views/pages/ngbootstrap/ngbootstrap.module#NgbootstrapModule'
@@ -65,8 +66,8 @@ const routes: Routes = [
 				}
 			},
 			{path: 'error/:type', component: ErrorPageComponent},
-			{path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-			{path: '**', redirectTo: 'dashboard', pathMatch: 'full'}
+			{path: '', redirectTo: '', pathMatch: 'full'},
+			{path: '**', redirectTo: '', pathMatch: 'full'}
 		]
 	},
 ];

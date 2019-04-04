@@ -98,7 +98,7 @@ const routes: Routes = [
 		children: [
 			{
 				path: '',
-				redirectTo: 'customers',
+				redirectTo: 'quotes',
 				pathMatch: 'full'
 			},
 			{
@@ -110,19 +110,19 @@ const routes: Routes = [
 				component: OrdersListComponent
 			},
 			{
-				path: 'products',
+				path: 'quotes',
 				component: ProductsListComponent,
 			},
 			{
-				path: 'products/add',
+				path: 'quotes/add',
 				component: ProductEditComponent
 			},
 			{
-				path: 'products/edit',
+				path: 'prodquotesucts/edit',
 				component: ProductEditComponent
 			},
 			{
-				path: 'products/edit/:id',
+				path: 'quotes/edit/:id',
 				component: ProductEditComponent
 			},
 		]

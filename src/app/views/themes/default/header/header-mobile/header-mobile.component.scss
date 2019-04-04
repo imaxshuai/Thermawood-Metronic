@@ -1,0 +1,9 @@
+$primary-color:#006D41;
+.kt-header-mobile{
+    background: $primary-color !important;
+}
+.kt-header-mobile__logo{
+    img{
+        width: 150px
+    }
+}
