@@ -41,7 +41,7 @@ import {
 export class ProductsListComponent implements OnInit, OnDestroy {
 	// Table fields
 	dataSource: ProductsDataSource;
-	displayedColumns = ['select', 'VINCode', 'manufacture', 'model', 'modelYear', 'color', 'price', 'condition', 'status', 'actions'];
+	displayedColumns = ['select', 'VINCode', 'manufacture', 'model', 'modelYear', 'color', 'price', 'condition', 'actions'];
 	@ViewChild(MatPaginator) paginator: MatPaginator;
 	@ViewChild('sort1') sort: MatSort;
 	// Filter fields

@@ -3,7 +3,7 @@ export class CarsDb {
 		{
 			'id': 1,
 			'cModel': 'Elise',
-			'cManufacture': 'Lotus',
+			'cManufacture': 'fdg',
 			'cModelYear': 2004,
 			'cMileage': 116879,
 			// tslint:disable-next-line:max-line-length
@@ -13,7 +13,7 @@ export class CarsDb {
 			'cCondition': 1,
 			'createdDate': '09/30/2017',
 			'cStatus': 0,
-			'cVINCode': '1FTWX3D52AE575540',
+			'cVINCode': 'test',
 		}, {
 			'id': 2,
 			'cModel': 'Sunbird',

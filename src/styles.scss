@@ -6,6 +6,7 @@
 
 $primary-color:#006D41;
 $primary-deep-color:#005734;
+$accent-color:#c93239;
 .kt-aside{
     background: $primary-color !important;
     kt-brand{
@@ -51,11 +52,11 @@ $primary-deep-color:#005734;
     color:white !important
 }
 .btn-outline-brand{
-    color: $primary-color !important;
-    border-color: $primary-color !important;
+    color: $accent-color !important;
+    border-color: $accent-color !important;
 }
 .btn-outline-brand:hover{
-    background: $primary-color !important;
+    background: $accent-color !important;
     color:white !important
 }
 .kt-aside-menu .kt-menu__nav>.kt-menu__item.kt-menu__item--active>.kt-menu__heading .kt-menu__link-icon, .kt-aside-menu .kt-menu__nav>.kt-menu__item.kt-menu__item--active>.kt-menu__link .kt-menu__link-icon{
@@ -65,9 +66,22 @@ $primary-deep-color:#005734;
     flex: 0 0 25px !important;
 }
 .kt-header .kt-header__topbar .kt-header__topbar-item .kt-header__topbar-icon svg g [fill]{
-    fill: $primary-color !important;
+    fill: $accent-color !important;
 }
 .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary{
-    background: $primary-color !important;
+    background: $accent-color !important;
     color:white !important
+}
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent{
+    background: $accent-color !important;
+    color:white !important
+}
+.mat-checkbox:not(.mat-checkbox-disabled).mat-primary .mat-checkbox-ripple .mat-ripple-element{
+    background: $accent-color !important;
+}
+.mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary{
+    color: $primary-color !important;
+}
+.mat-checkbox-indeterminate.mat-primary .mat-checkbox-background, .mat-checkbox-checked.mat-primary .mat-checkbox-background{
+    background: $accent-color !important;
 }
