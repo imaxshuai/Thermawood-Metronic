@@ -1,0 +1,85 @@
+<kt-portlet>
+	<kt-portlet-header [title]="getComponentTitle()" [class]="'kt-portlet__head--lg'" [viewLoading$]="loading$">
+		<ng-container ktPortletTools>
+			<a [routerLink]="['../']" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+				<i class="la la-arrow-left"></i>
+				<span class="kt-hidden-mobile">Back</span>
+			</a>
+			<a href="javascript:;" id="kt_demo_panel_toggle" class="btn btn-secondary kt-margin-r-10" (click)="reset()" [disabled]="selectedTab !== 0" mat-raised-button matTooltip="Reset changes">
+				<!-- <i class="la la-add"></i> -->
+				<span class="kt-hidden-mobile">Add</span>
+			</a>
+			<a href="javascript:;" class="btn btn-primary kt-margin-r-10" color="primary" (click)="onSumbit(false)" mat-raised-button matTooltip="Save & Continue">
+				<span class="kt-hidden-mobile">Edit</span>
+			</a>
+			<!-- <button mat-icon-button [matMenuTriggerFor]="menu" color="primary">
+				<mat-icon>more_vert</mat-icon>
+			</button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item color="primary" (click)="onSumbit(true)">Save & Exit</button>
+				<button mat-menu-item color="primary">Save & Duplicate</button>
+				<button mat-menu-item color="primary" (click)="onSumbit(false)">Save & Continue</button>
+			</mat-menu> -->
+		</ng-container>
+	</kt-portlet-header>
+	<kt-portlet-body>
+			<div class="row">
+
+			<div class="col-md-4 kt-margin-bottom-10-mobile">
+					<mat-card class="example-card quote-card">
+							<h2>Lounge</h2>
+							<p>Windows: 1, DGUs: 3</p>
+						  </mat-card>
+			</div>
+			<div class="col-md-4 kt-margin-bottom-10-mobile">
+					<mat-card class="example-card quote-card">
+							<h2>Bedroom 1</h2>
+							<p>Windows: 3, DGUs: 2</p>
+						  </mat-card>
+			</div>
+			<div class="col-md-4 kt-margin-bottom-10-mobile">
+					<mat-card class="example-card quote-card">
+							<h2>Bedroom 1</h2>
+							<p>Windows: 2, DGUs: 2</p>
+						  </mat-card>
+			</div>
+		</div>
+		
+	</kt-portlet-body>
+</kt-portlet>
+
+	<!-- begin::Demo Panel -->
+<div ktOffcanvas [options]="demoPanelOptions" id="kt_demo_panel" class="kt-demo-panel">
+		<div class="kt-demo-panel__head">
+			<h3 class="kt-demo-panel__title">
+				Add Room
+			</h3>
+			<a href="javascript:;" class="kt-demo-panel__close" id="kt_demo_panel_close"><i class="flaticon2-delete"></i></a>
+		</div>
+		<div class="kt-demo-panel__body kt-scroll">
+			<form name="roomForm" class="kt-form kt-form--group-seperator-dashed">
+					<mat-form-field class="mat-form-field-fluid">
+							<input matInput placeholder="Enter Name" [(ngModel)]="name" name="roomname">
+							<mat-error>
+								Room name is
+								<strong>required</strong>
+							</mat-error>
+							<mat-hint align="start">Please enter
+								<strong>Room name</strong>
+							</mat-hint>
+						</mat-form-field>
+					<mat-form-field class="mat-form-field-fluid">
+						<textarea matInput rows="3" placeholder="Enter Description" name="comments" [(ngModel)]="description"></textarea>
+					</mat-form-field>
+					<mat-checkbox class="example-margin">Is Wet Area</mat-checkbox>
+					<p>Windows: 0, DGUS:0</p>
+
+			</form>
+				
+			<a href="javascript:;" class="kt-demo-panel__purchase btn btn-brand btn-elevate btn-bold btn-upper" style="margin-top:30px" target="_blank">
+				ADD
+			</a>
+		</div>
+	</div>
+	<!-- end::Demo Panel -->
+	

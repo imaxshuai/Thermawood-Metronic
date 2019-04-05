@@ -59,6 +59,7 @@ import { SpecificationEditDialogComponent } from './products/_subs/specification
 // Orders
 import { OrdersListComponent } from './orders/orders-list/orders-list.component';
 import { OrderEditComponent } from './orders/order-edit/order-edit.component';
+import { RoomEditComponent } from './products/room-edit/room-edit.component';
 // Material
 import {
 	MatInputModule,
@@ -125,12 +126,17 @@ const routes: Routes = [
 				path: 'quotes/edit/:id',
 				component: ProductEditComponent
 			},
+			{
+				path: 'quotes/edit/:id/room',
+				component: RoomEditComponent
+			}
 		]
 	}
 ];
 
 @NgModule({
 	imports: [
+		CoreModule,
 		MatDialogModule,
 		CommonModule,
 		HttpClientModule,
@@ -221,7 +227,8 @@ const routes: Routes = [
 		ProductEditComponent,
 		RemarksListComponent,
 		SpecificationsListComponent,
-		SpecificationEditDialogComponent
+		SpecificationEditDialogComponent,
+		RoomEditComponent
 	]
 })
 export class ECommerceModule { }

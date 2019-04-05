@@ -197,6 +197,9 @@ export class PageConfig {
 				},
 				add: {
 					page: {title: 'Create Quote', desc: ''}
+				},
+				room: {
+					page: {title: 'Edit Room', desc: ''}
 				}
 			},
 			orders: {

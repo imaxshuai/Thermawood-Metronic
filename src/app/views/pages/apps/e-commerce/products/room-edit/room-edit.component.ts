@@ -24,7 +24,7 @@ import {
 	ProductOnServerCreated,
 	ProductUpdated
 } from '../../../../../../core/e-commerce';
-
+import { OffcanvasOptions } from '../../../../../../core/_base/metronic';
 const AVAILABLE_COLORS: string[] =
 	['Red', 'CadetBlue', 'Gold', 'LightSlateGrey', 'RoyalBlue', 'Crimson', 'Blue', 'Sienna', 'Indigo', 'Green', 'Violet',
 	'GoldenRod', 'OrangeRed', 'Khaki', 'Teal', 'Purple', 'Orange', 'Pink', 'Black', 'DarkTurquoise'];
@@ -35,13 +35,22 @@ const AVAILABLE_MANUFACTURES: string[] =
 
 @Component({
 	// tslint:disable-next-line:component-selector
-	selector: 'kt-product-edit',
-	templateUrl: './product-edit.component.html',
+	selector: 'kt-room-edit',
+	templateUrl: './room-edit.component.html',
+	styleUrls: ['./room-edit.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProductEditComponent implements OnInit, OnDestroy {
+export class RoomEditComponent implements OnInit, OnDestroy {
 	// Public properties
-	product: ProductModel;
+	demoPanelOptions: OffcanvasOptions = {
+		overlay: true,
+		baseClass: 'kt-demo-panel',
+		closeBy: 'kt_demo_panel_close',
+		toggleBy: 'kt_demo_panel_toggle'
+	};
+	product: {};
+	name:'';
+	description:'';
 	productId$: Observable<number>;
 	oldProduct: ProductModel;
 	selectedTab: number = 0;
@@ -90,34 +99,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 	 * On init
 	 */
 	ngOnInit() {
-		for (let i = 2019; i > 1945; i--) {
-			this.availableYears.push(i);
-		}
-		this.loading$ = this.loadingSubject.asObservable();
-		this.loadingSubject.next(true);
-		this.activatedRoute.params.subscribe(params => {
-			const id = params['id'];
-			if (id && id > 0) {
-				this.store.pipe(
-					select(selectProductById(id)),
-					first(res => {
-						return res !== undefined;
-					})
-				).subscribe(result => {
-					this.product = result;
-					this.productId$ = of(result.id);
-					this.oldProduct = Object.assign({}, result);
-					this.initProduct();
-				});
-			} else {
-					const newProduct = new ProductModel();
-					newProduct.clear();
-					this.productId$ = of(newProduct.id);
-					this.product = newProduct;
-					this.oldProduct = Object.assign({}, newProduct);
-					this.initProduct();
-				}
-			});
+		this.createForm();
 
 		// sticky portlet header
 		window.onload = () => {
@@ -139,50 +121,27 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 	 * Init product
 	 */
 	initProduct() {
-		this.createForm();
-		const prefix = this.layoutConfigService.getCurrentMainRoute();
-		this.loadingSubject.next(false);
-		if (!this.product.id) {
-			this.subheaderService.setBreadcrumbs([
-				{ title: 'Quotes',  page: `../${prefix}/quotes` },
-				{ title: 'Create Quotes', page: `../${prefix}/quotes/add` }
-			]);
-			return;
-		}
-		this.subheaderService.setTitle('Edit Quotes');
-		this.subheaderService.setBreadcrumbs([
-			{ title: 'Quotes',  page: `../${prefix}/quotes` },
-			{ title: 'Edit Quotes', page: `../${prefix}/quotes/edit`, queryParams: { id: this.product.id } }
-		]);
 	}
 
 	/**
 	 * Create form
 	 */
 	createForm() {
-		this.productForm = this.productFB.group({
-			model: [this.product.model, Validators.required],
-			manufacture: [this.product.manufacture, Validators.required],
-			modelYear: [this.product.modelYear.toString(), Validators.required],
-			mileage: [this.product.mileage, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-			description: [this.product.description],
-			color: [this.product.color, Validators.required],
-			price: [this.product.price, [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-			condition: [this.product.condition.toString(), [Validators.required, Validators.min(0), Validators.max(1)]],
-			status: [this.product.status.toString(), [Validators.required, Validators.min(0), Validators.max(1)]],
-			VINCode: [this.product.VINCode, Validators.required]
-		});
+		// this.productForm = this.productFB.group({
+		// 	room: [this.product.name, Validators.required],
+		// 	description: [this.product.description]
+		// });
 
-		this.filteredManufactures = this.productForm.controls.manufacture.valueChanges
-			.pipe(
-				startWith(''),
-				map(val => this.filterManufacture(val.toString()))
-			);
-		this.filteredColors = this.productForm.controls.color.valueChanges
-			.pipe(
-				startWith(''),
-				map(val => this.filterColor(val.toString()))
-		);
+		// this.filteredManufactures = this.productForm.controls.manufacture.valueChanges
+		// 	.pipe(
+		// 		startWith(''),
+		// 		map(val => this.filterManufacture(val.toString()))
+		// 	);
+		// this.filteredColors = this.productForm.controls.color.valueChanges
+		// 	.pipe(
+		// 		startWith(''),
+		// 		map(val => this.filterColor(val.toString()))
+		// );
 	}
 
 	/**
@@ -212,7 +171,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 	 */
 	goBack(id) {
 		this.loadingSubject.next(false);
-		const url = `/quotes?id=${id}`;
+		const url = `${this.layoutConfigService.getCurrentMainRoute()}/ecommerce/products?id=${id}`;
 		this.router.navigateByUrl(url, { relativeTo: this.activatedRoute });
 	}
 
@@ -230,7 +189,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 			return;
 		}
 
-		url = `${this.layoutConfigService.getCurrentMainRoute()}/quotes/edit/${id}`;
+		url = `${this.layoutConfigService.getCurrentMainRoute()}/ecommerce/products/edit/${id}`;
 		this.router.navigateByUrl(url, { relativeTo: this.activatedRoute });
 	}
 
@@ -238,12 +197,6 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 	 * Reset
 	 */
 	reset() {
-		this.product = Object.assign({}, this.oldProduct);
-		this.createForm();
-		this.hasFormErrors = false;
-		this.productForm.markAsPristine();
-        this.productForm.markAsUntouched();
-        this.productForm.updateValueAndValidity();
 	}
 
 	/**
@@ -252,31 +205,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 	 * @param withBack: boolean
 	 */
 	onSumbit(withBack: boolean = false) {
-		let url = `/quotes/edit/${this.product.id}/room`;
-		this.router.navigateByUrl(url, { relativeTo: this.activatedRoute });
-		return;
-		this.hasFormErrors = false;
-		const controls = this.productForm.controls;
-		/** check form */
-		if (this.productForm.invalid) {
-			Object.keys(controls).forEach(controlName =>
-				controls[controlName].markAsTouched()
-			);
 
-			this.hasFormErrors = true;
-			this.selectedTab = 0;
-			return;
-		}
-
-		// tslint:disable-next-line:prefer-const
-		let editedProduct = this.prepareProduct();
-
-		if (editedProduct.id > 0) {
-			this.updateProduct(editedProduct, withBack);
-			return;
-		}
-
-		this.addProduct(editedProduct, withBack);
 	}
 
 	/**
@@ -285,22 +214,6 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 	prepareProduct(): ProductModel {
 		const controls = this.productForm.controls;
 		const _product = new ProductModel();
-		_product.id = this.product.id;
-		_product.model = controls['model'].value;
-		_product.manufacture = controls['manufacture'].value;
-		_product.modelYear = +controls['modelYear'].value;
-		_product.mileage = +controls['mileage'].value;
-		_product.description = controls['description'].value;
-		_product.color = controls['color'].value;
-		_product.price = +controls['price'].value;
-		_product.condition = +controls['condition'].value;
-		_product.status = +controls['status'].value;
-		_product.VINCode = controls['VINCode'].value;
-		_product._userId = 1; // TODO: get version from userId
-		_product._createdDate = this.product._createdDate;
-		_product._updatedDate = this.product._updatedDate;
-		_product._updatedDate = this.typesUtilsService.getDateStringFromDate();
-		_product._createdDate = this.product.id > 0 ? _product._createdDate : _product._updatedDate;
 		return _product;
 	}
 
@@ -366,12 +279,7 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 	 * Returns component title
 	 */
 	getComponentTitle() {
-		let result = 'Create Quote';
-		if (!this.product || !this.product.id) {
-			return result;
-		}
-
-		result = `${this.product.model}, ${this.product.modelYear}`;
+		let result = 'List';
 		return result;
 	}
 

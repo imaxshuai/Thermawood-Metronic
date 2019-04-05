@@ -85,3 +85,20 @@ $accent-color:#c93239;
 .mat-checkbox-indeterminate.mat-primary .mat-checkbox-background, .mat-checkbox-checked.mat-primary .mat-checkbox-background{
     background: $accent-color !important;
 }
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background: $accent-color !important;
+}
+.btn-brand:not(:disabled):not(.disabled):active, .btn-brand:not(:disabled):not(.disabled).active, .show>.btn-brand.dropdown-toggle {
+    color: #fff;
+    background-color: $accent-color !important;
+    border-color: $accent-color !important;
+}
+.kt-demo-panel .kt-demo-panel__head .kt-demo-panel__close:hover{
+    background: $accent-color !important;
+}
+.btn-brand:hover{
+    background: $accent-color !important;
+}
+.btn-brand{
+    background: $accent-color !important;
+}
