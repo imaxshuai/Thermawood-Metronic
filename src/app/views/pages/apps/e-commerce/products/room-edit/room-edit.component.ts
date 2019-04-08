@@ -15,6 +15,7 @@ import { AppState } from '../../../../../../core/reducers';
 import { SubheaderService, LayoutConfigService } from '../../../../../../core/_base/layout';
 // CRUD
 import { LayoutUtilsService, TypesUtilsService, MessageType } from '../../../../../../core/_base/crud';
+
 // Services and Models
 import {
 	selectLastCreatedProductId,
@@ -192,7 +193,20 @@ export class RoomEditComponent implements OnInit, OnDestroy {
 		url = `${this.layoutConfigService.getCurrentMainRoute()}/ecommerce/products/edit/${id}`;
 		this.router.navigateByUrl(url, { relativeTo: this.activatedRoute });
 	}
-
+	simulateClick (elem:any) {
+		// Create our event (with options)
+		let evt = new MouseEvent('click', {
+			bubbles: true,
+			cancelable: true,
+			view: window
+		});
+		// If cancelled, don't dispatch our event
+		let canceled = !elem.dispatchEvent(evt);
+	};
+	addRoom(){
+		let ktDemopanelOverlay = document.getElementsByClassName('kt-demo-panel-overlay')[0];
+		this.simulateClick(ktDemopanelOverlay);
+	}
 	/**
 	 * Reset
 	 */
@@ -206,7 +220,6 @@ export class RoomEditComponent implements OnInit, OnDestroy {
 	 */
 	onSumbit(withBack: boolean = false) {
 		let url = `/quotes/edit/${this.activatedRoute.snapshot.paramMap.get('id')}/room/window`;
-		debugger;
 		this.router.navigateByUrl(url, { relativeTo: this.activatedRoute });
 	}
 
