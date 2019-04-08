@@ -60,6 +60,7 @@ import { SpecificationEditDialogComponent } from './products/_subs/specification
 import { OrdersListComponent } from './orders/orders-list/orders-list.component';
 import { OrderEditComponent } from './orders/order-edit/order-edit.component';
 import { RoomEditComponent } from './products/room-edit/room-edit.component';
+import { WindowEditComponent } from './products/window-edit/window-edit.component';
 // Material
 import {
 	MatInputModule,
@@ -129,6 +130,10 @@ const routes: Routes = [
 			{
 				path: 'quotes/edit/:id/room',
 				component: RoomEditComponent
+			},
+			{
+				path: 'quotes/edit/:id/room/window',
+				component: WindowEditComponent
 			}
 		]
 	}
@@ -228,7 +233,8 @@ const routes: Routes = [
 		RemarksListComponent,
 		SpecificationsListComponent,
 		SpecificationEditDialogComponent,
-		RoomEditComponent
+		RoomEditComponent,
+		WindowEditComponent
 	]
 })
 export class ECommerceModule { }

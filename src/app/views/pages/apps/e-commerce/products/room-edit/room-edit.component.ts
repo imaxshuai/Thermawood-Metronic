@@ -205,7 +205,9 @@ export class RoomEditComponent implements OnInit, OnDestroy {
 	 * @param withBack: boolean
 	 */
 	onSumbit(withBack: boolean = false) {
-
+		let url = `/quotes/edit/${this.activatedRoute.snapshot.paramMap.get('id')}/room/window`;
+		debugger;
+		this.router.navigateByUrl(url, { relativeTo: this.activatedRoute });
 	}
 
 	/**
