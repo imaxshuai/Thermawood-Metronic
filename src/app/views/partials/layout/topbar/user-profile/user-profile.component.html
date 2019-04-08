@@ -3,8 +3,7 @@
 			<div class="kt-header__topbar-user">
 				<span class="kt-header__topbar-welcome kt-hidden-mobile">Hi,</span>
 				<span class="kt-header__topbar-username kt-hidden-mobile">
-					<!-- {{_user.fullname}} -->
-					Ronnie
+					{{_user.fullname}}
 				</span>
 				<img [hidden]="true" alt="Pic" [attr.src]="_user.pic">
 				<!-- <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold">{{_user.fullname|firstLetter}}</span> -->
@@ -12,17 +11,17 @@
 		</div>
 		<div ngbDropdownMenu class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-top-unround dropdown-menu-xl">
 			<!--begin: Head -->
-			<div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background-image: url(./assets/media/misc/bg-1.jpg)">
+			<div class="kt-user-card kt-user-card--skin-dark kt-notification-item-padding-x" style="background:#006D41">
 				<div class="kt-user-card__avatar">
-					<img alt="Pic" [attr.src]="_user.pic"/>
+					<img alt="Pic" [attr.src]="_user.pic" style="border:1px solid #fff"/>
 					<span [hidden]="true" class="kt-badge kt-badge--lg kt-badge--rounded kt-badge--bold kt-font-success">{{_user.fullname|firstLetter}}</span>
 				</div>
 				<div class="kt-user-card__name">
 					{{_user.fullname}}
 				</div>
-				<div class="kt-user-card__badge">
+				<!-- <div class="kt-user-card__badge">
 					<span class="btn btn-success btn-sm btn-bold btn-font-md">23 messages</span>
-				</div>
+				</div> -->
 			</div>
 			<!--end: Head -->
 	

@@ -8,7 +8,7 @@ $primary-color:#006D41;
 $primary-deep-color:#005734;
 $accent-color:#c93239;
 body{
-    overflow: hidden;
+    overflow-x: hidden;
 }
 .mat-row:nth-child(even){
     background-color:rgb(245, 245, 245) !important;
