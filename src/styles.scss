@@ -7,6 +7,24 @@
 $primary-color:#006D41;
 $primary-deep-color:#005734;
 $accent-color:#c93239;
+body{
+    overflow: hidden;
+}
+.mat-row:nth-child(even){
+    background-color:rgb(245, 245, 245) !important;
+    }
+
+// .mat-row:nth-child(odd){
+//     background-color:black !important;
+//     }
+.kt-link,.tems-and-condition{
+    color:$accent-color !important;
+}
+
+.alert.alert-info,.btn-primary{
+    background: $accent-color !important;
+    border: 1px solid $accent-color !important;
+}
 .kt-aside{
     background: $primary-color !important;
     kt-brand{
@@ -101,4 +119,16 @@ $accent-color:#c93239;
 }
 .btn-brand{
     background: $accent-color !important;
+}
+.mat-row{
+    &:hover{
+        background: $primary-color !important;
+        cursor: pointer;
+        .mat-cell{
+            color: white !important;
+            .mat-icon{
+                color: white !important;
+            }
+        } 
+  }
 }

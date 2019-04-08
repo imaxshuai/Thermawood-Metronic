@@ -45,8 +45,8 @@ export class RoomEditComponent implements OnInit, OnDestroy {
 	demoPanelOptions: OffcanvasOptions = {
 		overlay: true,
 		baseClass: 'kt-demo-panel',
-		closeBy: 'kt_demo_panel_close',
-		toggleBy: 'kt_demo_panel_toggle'
+		closeBy: 'kt_demo_panel_close1',
+		toggleBy: 'kt_demo_panel_toggle1'
 	};
 	product: {};
 	name:'';

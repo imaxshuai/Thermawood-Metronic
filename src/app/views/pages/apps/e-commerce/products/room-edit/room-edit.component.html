@@ -5,7 +5,7 @@
 				<i class="la la-arrow-left"></i>
 				<span class="kt-hidden-mobile">Back</span>
 			</a>
-			<a href="javascript:;" id="kt_demo_panel_toggle" class="btn btn-secondary kt-margin-r-10" (click)="reset()" [disabled]="selectedTab !== 0" mat-raised-button matTooltip="Reset changes">
+			<a href="javascript:;" id="kt_demo_panel_toggle1" class="btn btn-secondary kt-margin-r-10" (click)="reset()" [disabled]="selectedTab !== 0" mat-raised-button matTooltip="Reset changes">
 				<!-- <i class="la la-add"></i> -->
 				<span class="kt-hidden-mobile">Add</span>
 			</a>
@@ -25,22 +25,35 @@
 	<kt-portlet-body>
 			<div class="row">
 
-			<div class="col-md-4 kt-margin-bottom-10-mobile">
+			<div class="col-md-4 kt-margin-bottom-20 kt-margin-bottom-10-mobile">
 					<mat-card class="example-card quote-card">
-							<h2>Lounge</h2>
-							<p>Windows: 1, DGUs: 3</p>
+							<h2>
+								<i class="fa fa-home" style="margin-right:5px"></i>
+								Lounge
+							</h2>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+							<p><b>Windows:</b> 1, <b>DGUs:</b> 3</p>
 						  </mat-card>
 			</div>
-			<div class="col-md-4 kt-margin-bottom-10-mobile">
+			<div class="col-md-4 kt-margin-bottom-20 kt-margin-bottom-10-mobile">
 					<mat-card class="example-card quote-card">
-							<h2>Bedroom 1</h2>
-							<p>Windows: 3, DGUs: 2</p>
+							<h2><i class="fa fa-home" style="margin-right:5px"></i>Bedroom 1</h2>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+							<p><b>Windows:</b> 3, <b>DGUs:</b> 2</p>
 						  </mat-card>
 			</div>
-			<div class="col-md-4 kt-margin-bottom-10-mobile">
+			<div class="col-md-4 kt-margin-bottom-20 kt-margin-bottom-10-mobile">
 					<mat-card class="example-card quote-card">
-							<h2>Bedroom 1</h2>
-							<p>Windows: 2, DGUs: 2</p>
+							<h2><i class="fa fa-home" style="margin-right:5px"></i>Bedroom 2</h2>
+							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
+							<p><b>Windows:</b> 2, <b>DGUs:</b> 2</p>
+						  </mat-card>
+			</div>
+			<div class="col-md-4 kt-margin-bottom-20 kt-margin-bottom-10-mobile" *ngIf="name || description">
+					<mat-card class="example-card quote-card">
+							<h2><i class="fa fa-home" style="margin-right:5px"></i>{{name}}</h2>
+							<p>{{description}}</p>
+							<p><b>Windows:</b> 2, <b>DGUs:</b> 2</p>
 						  </mat-card>
 			</div>
 		</div>
@@ -54,7 +67,7 @@
 			<h3 class="kt-demo-panel__title">
 				Add Room
 			</h3>
-			<a href="javascript:;" class="kt-demo-panel__close" id="kt_demo_panel_close"><i class="flaticon2-delete"></i></a>
+			<a href="javascript:;" class="kt-demo-panel__close" id="kt_demo_panel_close1"><i class="flaticon2-delete"></i></a>
 		</div>
 		<div class="kt-demo-panel__body kt-scroll">
 			<form name="roomForm" class="kt-form kt-form--group-seperator-dashed">
