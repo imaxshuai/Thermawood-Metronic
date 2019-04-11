@@ -129,7 +129,6 @@ export class QuotePricingComponent implements OnInit, OnDestroy {
 		this.discountOption = season.name;
 	}
 	onInputChange(event){
-		debugger;
     this.discount = event.value;
     this.OptionOneCostWithDiscount = (this.getTotalOptionOneCost() * this.discount)/100;
     this.OptionTwoCostWithDiscount = (this.getTotalOptionTwoCost() * this.discount)/100;

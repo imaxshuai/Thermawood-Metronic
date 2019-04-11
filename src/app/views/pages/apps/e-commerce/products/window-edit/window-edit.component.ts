@@ -52,7 +52,7 @@ export class WindowEditComponent implements OnInit, OnDestroy {
 		toggleBy: 'kt_demo_panel_toggle1'
 	};
 	product: {};
-	name:'';
+	windowName:'';
 	description:'';
 	productId$: Observable<number>;
 	oldProduct: ProductModel;

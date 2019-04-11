@@ -155,3 +155,11 @@ h1,h2,h3,h4{
 .mat-accent .mat-slider-track-fill, .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label {
     background: $accent-color !important;
 }
+.kt-scrolltop{
+    background: $accent-color !important;
+}
+.btn-secondary.disabled:hover {
+    color: #6c7293;
+    border-color: #ebedf2 !important;
+    background-color: #f4f5f8 !important;
+}

@@ -1,11 +1,11 @@
 <kt-portlet>
-	<kt-portlet-header [title]="getComponentTitle()" [class]="'kt-portlet__head--lg'" [viewLoading$]="loading$">
+	<kt-portlet-header [title]="getComponentTitle()" [class]="'kt-portlet__head--lg'">
 		<ng-container ktPortletTools>
 			<a [routerLink]="['../']" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
 				<i class="la la-arrow-left"></i>
 				<span>Back</span>
 			</a>
-			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10 disabled"  mat-raised-button matTooltip="Back to the products list">
 					<mat-icon class="mr-2">business</mat-icon>
 				<span>Business</span>
 			</a>
@@ -15,16 +15,16 @@
 						</svg>
 				<span>Discount</span>
 			</a>
-			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10 disabled"  mat-raised-button matTooltip="Back to the products list">
 					<mat-icon class="mr-2">email</mat-icon>
 				<span>Email</span>
 			</a>
 			
-			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10 disabled"  mat-raised-button matTooltip="Back to the products list">
 					<mat-icon class="mr-2">save</mat-icon>
 				<span>Save</span>
 			</a>
-			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10 disabled"  mat-raised-button matTooltip="Back to the products list">
 					<mat-icon class="mr-2">sort</mat-icon>
 				<span>Sort</span>
 			</a>

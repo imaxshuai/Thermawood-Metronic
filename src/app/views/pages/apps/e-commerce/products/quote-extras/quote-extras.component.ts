@@ -52,8 +52,9 @@ export class QuoteExtrasComponent implements OnInit, OnDestroy {
 		toggleBy: 'kt_demo_panel_toggle1'
 	};
 	product: {};
-	name:'';
-	description:'';
+	comment:'';
+	quantity:'';
+	price:'';
 	productId$: Observable<number>;
 	oldProduct: ProductModel;
 	selectedTab: number = 0;
