@@ -246,7 +246,7 @@ export class QuoteExtrasComponent implements OnInit, OnDestroy {
 	 * @param withBack: boolean
 	 */
 	onSumbit(withBack: boolean = false) {
-		let url = `/quotes/edit/${this.activatedRoute.snapshot.paramMap.get('id')}/room/window/quote-extras`;
+		let url = `/quotes/edit/${this.activatedRoute.snapshot.paramMap.get('id')}/room/window/quote-extras/quote-pricing`;
 		this.router.navigateByUrl(url, { relativeTo: this.activatedRoute });
 	}
 

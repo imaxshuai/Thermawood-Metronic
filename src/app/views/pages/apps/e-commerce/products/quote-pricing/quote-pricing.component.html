@@ -1,0 +1,169 @@
+<kt-portlet>
+	<kt-portlet-header [title]="getComponentTitle()" [class]="'kt-portlet__head--lg'" [viewLoading$]="loading$">
+		<ng-container ktPortletTools>
+			<a [routerLink]="['../']" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+				<i class="la la-arrow-left"></i>
+				<span>Back</span>
+			</a>
+			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+					<mat-icon class="mr-2">business</mat-icon>
+				<span>Business</span>
+			</a>
+			<a href="javascript:;" id="kt_demo_panel_toggle1" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+					<svg style="width:24px;height:24px; margin-right: .5rem !important;" viewBox="0 0 24 24">
+							<path fill="#000000" d="M18.65,2.85L19.26,6.71L22.77,8.5L21,12L22.78,15.5L19.24,17.29L18.63,21.15L14.74,20.54L11.97,23.3L9.19,20.5L5.33,21.14L4.71,17.25L1.22,15.47L3,11.97L1.23,8.5L4.74,6.69L5.35,2.86L9.22,3.5L12,0.69L14.77,3.46L18.65,2.85M9.5,7A1.5,1.5 0 0,0 8,8.5A1.5,1.5 0 0,0 9.5,10A1.5,1.5 0 0,0 11,8.5A1.5,1.5 0 0,0 9.5,7M14.5,14A1.5,1.5 0 0,0 13,15.5A1.5,1.5 0 0,0 14.5,17A1.5,1.5 0 0,0 16,15.5A1.5,1.5 0 0,0 14.5,14M8.41,17L17,8.41L15.59,7L7,15.59L8.41,17Z" />
+						</svg>
+				<span>Discount</span>
+			</a>
+			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+					<mat-icon class="mr-2">email</mat-icon>
+				<span>Email</span>
+			</a>
+			
+			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+					<mat-icon class="mr-2">save</mat-icon>
+				<span>Save</span>
+			</a>
+			<a href="javascript:;" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+					<mat-icon class="mr-2">sort</mat-icon>
+				<span>Sort</span>
+			</a>
+			<!-- <button mat-button class="btn btn-secondary"> <mat-icon class="mr-5">business</mat-icon></button>
+			<button mat-icon-button (click)="openDialog()"> <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+				<path fill="#000000" d="M18.65,2.85L19.26,6.71L22.77,8.5L21,12L22.78,15.5L19.24,17.29L18.63,21.15L14.74,20.54L11.97,23.3L9.19,20.5L5.33,21.14L4.71,17.25L1.22,15.47L3,11.97L1.23,8.5L4.74,6.69L5.35,2.86L9.22,3.5L12,0.69L14.77,3.46L18.65,2.85M9.5,7A1.5,1.5 0 0,0 8,8.5A1.5,1.5 0 0,0 9.5,10A1.5,1.5 0 0,0 11,8.5A1.5,1.5 0 0,0 9.5,7M14.5,14A1.5,1.5 0 0,0 13,15.5A1.5,1.5 0 0,0 14.5,17A1.5,1.5 0 0,0 16,15.5A1.5,1.5 0 0,0 14.5,14M8.41,17L17,8.41L15.59,7L7,15.59L8.41,17Z" />
+			</svg></button>
+			<button mat-button class="btn btn-secondary"> <mat-icon class="mr-5"><mat-icon class="mr-5">email</mat-icon></mat-icon></button>
+			<button mat-button class="btn btn-secondary"> <mat-icon class="mr-5">save</mat-icon></button>
+			<button mat-button class="btn btn-secondary"> <mat-icon class="mr-5">sort</mat-icon></button> -->
+		</ng-container>
+	</kt-portlet-header>
+	<kt-portlet-body>
+			<table mat-table [dataSource]="transactions" class="mat-elevation-z8 pricing-table">
+					<!-- Item Column -->
+					<ng-container matColumnDef="rooms">
+					  <th mat-header-cell *matHeaderCellDef> Rooms </th>
+					  <td mat-cell *matCellDef="let transaction"> {{transaction.rooms}} </td>
+					  <td mat-footer-cell *matFooterCellDef> Sub Total
+						<div *ngIf="discount">
+							<br><span style="position:relative;margin-bottom:10px">Discount ({{discount}}%)</span>
+							<br><span style="position:relative;top:20px;margin-bottom:10px">Total</span> 
+						</div>
+					  </td>
+					</ng-container>
+				  
+					<!-- Cost Column -->
+					<ng-container matColumnDef="numberOfUnits">
+					  <th mat-header-cell *matHeaderCellDef> Number of Units </th>
+					  <td mat-cell *matCellDef="let transaction"> {{transaction.numberOfUnits | currency}} </td>
+					  <td mat-footer-cell *matFooterCellDef> {{getTotalUnitCost() | currency}} 
+						  <div *ngIf="discount">
+							  <br>
+							  <br><span style="position:relative;top:20px;margin-bottom:10px">{{getTotalUnitCost() | currency}}</span> 
+						  </div>
+					  </td>
+					</ng-container>
+					<ng-container matColumnDef="optionOne">
+						<th mat-header-cell *matHeaderCellDef> Option1 </th>
+						<td mat-cell *matCellDef="let transaction"> {{transaction.optionOne | currency}} </td>
+						<td mat-footer-cell *matFooterCellDef> {{getTotalOptionOneCost() | currency}} 
+							<div *ngIf="discount">
+								<br><span style="position:relative;margin-bottom:10px">{{OptionOneCostWithDiscount | currency}}</span>
+								<br><span style="position:relative;top:20px;margin-bottom:10px">{{getTotalOptionOneCost() - OptionOneCostWithDiscount| currency}}</span> 
+							</div>
+						</td>
+					  </ng-container>
+					  <ng-container matColumnDef="optionTwo">
+						  <th mat-header-cell *matHeaderCellDef> Option2 </th>
+						  <td mat-cell *matCellDef="let transaction"> {{transaction.optionTwo | currency}} </td>
+						  <td mat-footer-cell *matFooterCellDef> {{getTotalOptionTwoCost() | currency}} 
+							  <div *ngIf="discount">
+								  <br><span style="position:relative;margin-bottom:10px">{{OptionTwoCostWithDiscount | currency}}</span>
+								  <br><span style="position:relative;top:20px;margin-bottom:10px">{{getTotalOptionTwoCost() - OptionTwoCostWithDiscount| currency}}</span> 
+							  </div>
+						  </td>
+						</ng-container>
+						<ng-container matColumnDef="optionThree">
+							<th mat-header-cell *matHeaderCellDef> Option3 </th>
+							<td mat-cell *matCellDef="let transaction"> {{transaction.optionThree | currency}} </td>
+							<td mat-footer-cell *matFooterCellDef> {{getTotalOptionThreeCost() | currency}} 
+								<div *ngIf="discount">
+									<br><span style="position:relative;margin-bottom:10px">{{OptionThreeCostWithDiscount | currency}}</span>
+									<br><span style="position:relative;top:20px;margin-bottom:10px">{{getTotalOptionThreeCost() - OptionThreeCostWithDiscount| currency}}</span> 
+								</div>
+							</td>
+						  </ng-container>
+						  <ng-container matColumnDef="optionFour">
+							  <th mat-header-cell *matHeaderCellDef> Option4 </th>
+							  <td mat-cell *matCellDef="let transaction"> {{transaction.optionFour | currency}} </td>
+							  <td mat-footer-cell *matFooterCellDef> {{getTotalOptionFourCost() | currency}} 
+			  
+								  <div *ngIf="discount">
+									  <br><span style="position:relative;margin-bottom:10px">{{OptionFourCostWithDiscount | currency}}</span>
+									  <br><span style="position:relative;top:20px;margin-bottom:10px">{{getTotalOptionFourCost() - OptionFourCostWithDiscount| currency}}</span> 
+								  </div>
+							  </td>
+							</ng-container>
+							<ng-container matColumnDef="features">
+								<th mat-header-cell *matHeaderCellDef> features </th>
+								<td mat-cell *matCellDef="let transaction" style="width:100px"> 
+									<mat-form-field >
+										<mat-select placeholder="None">
+										  <mat-option value="{{transaction.features}}" selected>{{transaction.features}}</mat-option>
+										</mat-select>
+									  </mat-form-field>  
+								</td>
+								<td mat-footer-cell *matFooterCellDef></td>
+							  </ng-container>
+					<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+					<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+					<tr mat-footer-row *matFooterRowDef="displayedColumns"></tr>
+				  </table>
+				  <h3 style="width:100%;margin-bottom: 0;margin-top:20px">Quote Extras</h3>
+				  <p style="width:100%;margin-top: 0">Use Of Memory Status $500.00</p>
+				  <mat-form-field style="width:30%">
+					  <textarea matInput placeholder="Comment"></textarea>
+					</mat-form-field>
+		
+	</kt-portlet-body>
+</kt-portlet>
+
+	<!-- begin::Demo Panel -->
+<div ktOffcanvas [options]="demoPanelOptions" id="kt_demo_panel" class="kt-demo-panel window-edit">
+		<div class="kt-demo-panel__head">
+			<h3 class="kt-demo-panel__title">
+				Quote Discount
+			</h3>
+			<a href="javascript:;" class="kt-demo-panel__close" id="kt_demo_panel_close1"><i class="flaticon2-delete"></i></a>
+		</div>
+		<div class="kt-demo-panel__body kt-scroll">
+				<div class="row">
+						<div class="col-md-12 kt-margin-bottom-10-mobile">
+								<mat-radio-group class="example-radio-group" [(ngModel)]="discount">
+										<mat-radio-button (change)="selectDiscountOption(season)" class="example-radio-button" *ngFor="let season of seasons" [value]="season.value">
+										  {{season.name}}
+										</mat-radio-button>
+									</mat-radio-group>
+						</div>
+						<div class="col-md-12 kt-margin-bottom-10-mobile" *ngIf="discountOption==='Custom'">
+								<mat-slider class="mat-form-field-fluid"
+									thumbLabel
+									tickInterval="12"
+									min="1"
+									step=".5"
+									max="12"(change)="onInputChange($event)">
+									</mat-slider>
+						</div>
+						<div class="col-md-12 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<textarea matInput placeholder="Comment"></textarea>
+									  </mat-form-field>
+						</div>
+				</div>
+				
+			<a href="javascript:;" (click)="addWindow()" class="kt-demo-panel__purchase btn btn-brand btn-elevate btn-bold btn-upper" style="margin-top:30px" target="_blank">
+				ADD
+			</a>
+		</div>
+	</div>
+	<!-- end::Demo Panel -->
+	

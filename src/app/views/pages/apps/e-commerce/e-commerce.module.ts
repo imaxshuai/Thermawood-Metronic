@@ -83,7 +83,8 @@ import {
 	MatAutocompleteModule,
 	MAT_DIALOG_DEFAULT_OPTIONS,
 	MatSnackBarModule,
-	MatTooltipModule
+	MatTooltipModule,
+	MatSliderModule
 } from '@angular/material';
 import { environment } from '../../../../../environments/environment';
 import { CoreModule } from '../../../../core/core.module';
@@ -91,7 +92,8 @@ import { NgbProgressbarModule, NgbProgressbarConfig } from '@ng-bootstrap/ng-boo
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { SignatureFieldComponent } from './products/signature-field/signature-field.component';
 import { SignaturePadModule } from 'angular2-signaturepad';
-import {QuoteExtrasComponent} from './products/quote-extras/quote-extras.component'
+import {QuoteExtrasComponent} from './products/quote-extras/quote-extras.component';
+import {QuotePricingComponent} from './products/quote-pricing/quote-pricing.component';
 // tslint:disable-next-line:class-name
 const routes: Routes = [
 	{
@@ -140,6 +142,10 @@ const routes: Routes = [
 			{
 				path: 'quotes/edit/:id/room/window/quote-extras',
 				component: QuoteExtrasComponent
+			},
+			{
+				path: 'quotes/edit/:id/room/window/quote-extras/quote-pricing',
+				component: QuotePricingComponent
 			}
 		]
 	}
@@ -149,6 +155,7 @@ const routes: Routes = [
 	imports: [
 		CoreModule,
 		MatDialogModule,
+		MatSliderModule,
 		CommonModule,
 		HttpClientModule,
 		PartialsModule,
@@ -243,7 +250,8 @@ const routes: Routes = [
 		RoomEditComponent,
 		WindowEditComponent,
 		SignatureFieldComponent,
-		QuoteExtrasComponent
+		QuoteExtrasComponent,
+		QuotePricingComponent
 	]
 })
 export class ECommerceModule { }

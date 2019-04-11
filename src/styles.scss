@@ -139,6 +139,19 @@ h1,h2,h3,h4{
             .mat-icon{
                 color: white !important;
             }
+            .mat-select-value{
+                color: white !important;
+            }
+            
         } 
   }
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple{
+    background: $accent-color !important;
+}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color: $accent-color !important;
+}
+.mat-accent .mat-slider-track-fill, .mat-accent .mat-slider-thumb, .mat-accent .mat-slider-thumb-label {
+    background: $accent-color !important;
 }

@@ -1,0 +1,30 @@
+:host {
+	::ng-deep {
+		ngb-tabset > .nav-tabs {
+			display: none;
+		}
+	}
+	.pricing-table{
+		tr.mat-footer-row {
+			font-weight: bold;
+			height:130px !important;
+		}
+	}
+	.quote-card:hover{
+		cursor: pointer;
+		background: #006D41;
+		color:white;
+	}
+	.sig-container {
+		border-style: dashed;
+		border-width: 1px;
+		width: 436px;
+		height:252px;
+		margin-top: 10px;
+	  }
+	  // .window-edit{
+		// &.kt-demo-panel--on{
+		// 	width: 500px !important;
+		// }
+	  // }
+}
