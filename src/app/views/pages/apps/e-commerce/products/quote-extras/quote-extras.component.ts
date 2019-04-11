@@ -36,12 +36,12 @@ const AVAILABLE_MANUFACTURES: string[] =
 
 @Component({
 	// tslint:disable-next-line:component-selector
-	selector: 'kt-window-edit',
-	templateUrl: './window-edit.component.html',
-	styleUrls: ['./window-edit.component.scss'],
+	selector: 'kt-quote-extras',
+	templateUrl: './quote-extras.component.html',
+	styleUrls: ['./quote-extras.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WindowEditComponent implements OnInit, OnDestroy {
+export class QuoteExtrasComponent implements OnInit, OnDestroy {
 	// Public properties
 	@ViewChild(SignatureFieldComponent) public signature: SignatureFieldComponent;
     @ViewChild('sigContainer') public signatureContainer: ElementRef;
@@ -141,7 +141,7 @@ export class WindowEditComponent implements OnInit, OnDestroy {
 	  }
 	ngOnInit() {
 		this.createForm();
-		this.subheaderService.setTitle('Edit Window');
+		this.subheaderService.setTitle('Quote Extras');
 		// sticky portlet header
 		window.onload = () => {
 			const style = getComputedStyle(document.getElementById('kt_header'));

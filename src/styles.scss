@@ -9,6 +9,16 @@ $primary-deep-color:#005734;
 $accent-color:#c93239;
 body{
     overflow-x: hidden;
+    color: #464457 !important;
+}
+h1,h2,h3,h4{
+    color: #464457 !important;
+}
+.cdk-overlay-container{
+    z-index: 9999 !important;
+}
+.cdk-overlay-pane{
+    z-index: 9999 !important;
 }
 .mat-row:nth-child(even){
     background-color:rgb(245, 245, 245) !important;

@@ -10,7 +10,7 @@
 				<span>Add</span>
 			</a>
 			<a href="javascript:;" class="btn btn-primary kt-margin-r-10" color="primary" (click)="onSumbit(false)" mat-raised-button matTooltip="Save & Continue">
-				<span>Edit</span>
+				<span>Next</span>
 			</a>
 			<!-- <button mat-icon-button [matMenuTriggerFor]="menu" color="primary">
 				<mat-icon>more_vert</mat-icon>
@@ -28,68 +28,116 @@
 			<div class="col-md-4 kt-margin-bottom-20 kt-margin-bottom-10-mobile">
 					<mat-card class="example-card quote-card">
 							<h2>
-								<i class="fa fa-home" style="margin-right:5px"></i>
-								Lounge
+								<i class="la la-windows" style="margin-right:5px"></i>
+								W1
 							</h2>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-							<p><b>Windows:</b> 1, <b>DGUs:</b> 3</p>
-						  </mat-card>
+							<p><b>DGUS:</b> 0, <b>Area:</b> 0.00m2</p>
+							</mat-card>
 			</div>
 			<div class="col-md-4 kt-margin-bottom-20 kt-margin-bottom-10-mobile">
-					<mat-card class="example-card quote-card">
-							<h2><i class="fa fa-home" style="margin-right:5px"></i>Bedroom 1</h2>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-							<p><b>Windows:</b> 3, <b>DGUs:</b> 2</p>
-						  </mat-card>
+					<mat-card class="example-card quote-card" *ngIf="windowName">
+							<h2>
+								<i class="la la-windows" style="margin-right:5px"></i>
+							{{windowName}}
+							</h2>
+							<p><b>DGUS:</b> 0, <b>Area:</b> 0.00m2</p>
+							</mat-card>
 			</div>
-			<div class="col-md-4 kt-margin-bottom-20 kt-margin-bottom-10-mobile">
-					<mat-card class="example-card quote-card">
-							<h2><i class="fa fa-home" style="margin-right:5px"></i>Bedroom 2</h2>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
-							<p><b>Windows:</b> 2, <b>DGUs:</b> 2</p>
-						  </mat-card>
-			</div>
-			<div class="col-md-4 kt-margin-bottom-20 kt-margin-bottom-10-mobile" *ngIf="name || description">
-					<mat-card class="example-card quote-card">
-							<h2><i class="fa fa-home" style="margin-right:5px"></i>{{name}}</h2>
-							<p>{{description}}</p>
-							<p><b>Windows:</b> 2, <b>DGUs:</b> 2</p>
-						  </mat-card>
-			</div>
+			
 		</div>
 		
 	</kt-portlet-body>
 </kt-portlet>
 
 	<!-- begin::Demo Panel -->
-<div ktOffcanvas [options]="demoPanelOptions" id="kt_demo_panel" class="kt-demo-panel">
+<div ktOffcanvas [options]="demoPanelOptions" id="kt_demo_panel" class="kt-demo-panel window-edit">
 		<div class="kt-demo-panel__head">
 			<h3 class="kt-demo-panel__title">
-				Add Room
+				Add Window
 			</h3>
 			<a href="javascript:;" class="kt-demo-panel__close" id="kt_demo_panel_close1"><i class="flaticon2-delete"></i></a>
 		</div>
 		<div class="kt-demo-panel__body kt-scroll">
-			<form name="roomForm" class="kt-form kt-form--group-seperator-dashed">
-					<mat-form-field class="mat-form-field-fluid">
-							<input matInput placeholder="Enter Name" [(ngModel)]="name" name="roomname">
-							<mat-error>
-								Room name is
-								<strong>required</strong>
-							</mat-error>
-							<mat-hint align="start">Please enter
-								<strong>Room name</strong>
-							</mat-hint>
-						</mat-form-field>
-					<mat-form-field class="mat-form-field-fluid">
-						<textarea matInput rows="3" placeholder="Enter Description" name="comments" [(ngModel)]="description"></textarea>
-					</mat-form-field>
-					<mat-checkbox class="example-margin">Is Wet Area</mat-checkbox>
-					<p>Windows: 0, DGUS:0</p>
+				<div class="row">
+						<div class="col-md-8 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<input matInput placeholder="Window Name" [(ngModel)]="windowName">
+								</mat-form-field>
+						</div>
+						<div class="col-md-4 kt-margin-bottom-10-mobile">
+								<mat-form-field>
+										<mat-select placeholder="Window Type">
+												<mat-option value="Aliminum">Aliminum</mat-option>
+											</mat-select>
+										</mat-form-field>
 
-			</form>
+						</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+							<h2>Window Drawing</h2>
+							<mat-radio-group>
+									<mat-radio-button value="1" class="mr-10">Draw</mat-radio-button>
+									<mat-radio-button value="2">Mark</mat-radio-button>
+								</mat-radio-group>
+					</div>
+					<div class="col-md-12">
+							<div class="sig-container" #sigContainer>
+									<signature-field ></signature-field>
+								</div>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-md-6 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<input matInput placeholder="DGU">
+								</mat-form-field>
+						</div>
+						<div class="col-md-6 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<input matInput placeholder="Height">
+								</mat-form-field>
+						</div>
+						<div class="col-md-6 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<input matInput placeholder="Width">
+								</mat-form-field>
+						</div>
+						<div class="col-md-6 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<mat-select placeholder="Type">
+												<mat-option value="Sash">Sash</mat-option>
+											</mat-select>
+								</mat-form-field>
+						</div>
+						<div class="col-md-6 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<mat-select placeholder="Thickness">
+												<mat-option value="4mm">4mm</mat-option>
+												</mat-select>
+								</mat-form-field>
+						</div>
+						<div class="col-md-6 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<mat-select placeholder="Toughening">
+												<mat-option value="None">None</mat-option>
+											</mat-select>
+								</mat-form-field>
+						</div>
+						<div class="col-md-6 kt-margin-bottom-10-mobile">
+								<mat-radio-group class="mat-form-field-fluid" style="margin-top:12px">
+										<mat-radio-button value="1" class="mr-10">Obscuremen</mat-radio-button>
+										<mat-radio-button value="2">Shape</mat-radio-button>
+									</mat-radio-group>
+						</div>
+						<div class="col-md-6 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<input matInput placeholder="Dificulty">
+								</mat-form-field>
+						</div>
+				</div>
 				
-			<a href="javascript:;" class="kt-demo-panel__purchase btn btn-brand btn-elevate btn-bold btn-upper" style="margin-top:30px" target="_blank">
+			<a href="javascript:;" (click)="addWindow()" class="kt-demo-panel__purchase btn btn-brand btn-elevate btn-bold btn-upper" style="margin-top:30px" target="_blank">
 				ADD
 			</a>
 		</div>

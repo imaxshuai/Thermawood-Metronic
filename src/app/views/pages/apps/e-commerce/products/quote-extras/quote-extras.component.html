@@ -1,0 +1,82 @@
+<kt-portlet>
+	<kt-portlet-header [title]="getComponentTitle()" [class]="'kt-portlet__head--lg'" [viewLoading$]="loading$">
+		<ng-container ktPortletTools>
+			<a [routerLink]="['../']" class="btn btn-secondary kt-margin-r-10"  mat-raised-button matTooltip="Back to the products list">
+				<i class="la la-arrow-left"></i>
+				<span>Back</span>
+			</a>
+			<a href="javascript:;" id="kt_demo_panel_toggle1" class="btn btn-secondary kt-margin-r-10" (click)="reset()" [disabled]="selectedTab !== 0" mat-raised-button matTooltip="Reset changes">
+				<!-- <i class="la la-add"></i> -->
+				<span>Add</span>
+			</a>
+			<a href="javascript:;" class="btn btn-primary kt-margin-r-10" color="primary" (click)="onSumbit(false)" mat-raised-button matTooltip="Save & Continue">
+				<span>Edit</span>
+			</a>
+			<!-- <button mat-icon-button [matMenuTriggerFor]="menu" color="primary">
+				<mat-icon>more_vert</mat-icon>
+			</button>
+			<mat-menu #menu="matMenu">
+				<button mat-menu-item color="primary" (click)="onSumbit(true)">Save & Exit</button>
+				<button mat-menu-item color="primary">Save & Duplicate</button>
+				<button mat-menu-item color="primary" (click)="onSumbit(false)">Save & Continue</button>
+			</mat-menu> -->
+		</ng-container>
+	</kt-portlet-header>
+	<kt-portlet-body>
+			<div class="row">
+
+			<div class="col-md-12 kt-margin-bottom-20 kt-margin-bottom-10-mobile" *ngIf="!comment">
+					<div style="text-align:center">
+							<mat-icon class="mr-5" style="font-size:50px !important">format_indent_increase</mat-icon>
+							<h4>No Quote Extras Added Yet </h4>
+					</div>
+					
+			</div>
+			<div class="col-md-4 kt-margin-bottom-20 kt-margin-bottom-10-mobile" *ngIf="comment">
+					<mat-card class="example-card quote-card">
+							<h4>
+								{{comment}}
+							</h4>
+							<p><b>Total:</b> $.00</p>
+					</mat-card>
+			</div>
+			
+		</div>
+		
+	</kt-portlet-body>
+</kt-portlet>
+
+	<!-- begin::Demo Panel -->
+<div ktOffcanvas [options]="demoPanelOptions" id="kt_demo_panel" class="kt-demo-panel window-edit">
+		<div class="kt-demo-panel__head">
+			<h3 class="kt-demo-panel__title">
+				Add Quote Extras
+			</h3>
+			<a href="javascript:;" class="kt-demo-panel__close" id="kt_demo_panel_close1"><i class="flaticon2-delete"></i></a>
+		</div>
+		<div class="kt-demo-panel__body kt-scroll">
+				<div class="row">
+						<div class="col-md-12 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<textarea matInput rows="3" placeholder="Comment" [(ngModel)]="comment"></textarea>
+								</mat-form-field>
+						</div>
+						<div class="col-md-12 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<input matInput placeholder="Quantity" [(ngModel)]="quantity">
+								</mat-form-field>
+						</div>
+						<div class="col-md-12 kt-margin-bottom-10-mobile">
+								<mat-form-field class="mat-form-field-fluid">
+										<input matInput placeholder="Price" [(ngModel)]="price">
+								</mat-form-field>
+						</div>
+				</div>
+				
+			<a href="javascript:;" (click)="addWindow()" class="kt-demo-panel__purchase btn btn-brand btn-elevate btn-bold btn-upper" style="margin-top:30px" target="_blank">
+				ADD
+			</a>
+		</div>
+	</div>
+	<!-- end::Demo Panel -->
+	

@@ -101,7 +101,7 @@ export class RoomEditComponent implements OnInit, OnDestroy {
 	 */
 	ngOnInit() {
 		this.createForm();
-
+		this.subheaderService.setTitle('Edit Room');
 		// sticky portlet header
 		window.onload = () => {
 			const style = getComputedStyle(document.getElementById('kt_header'));

@@ -89,7 +89,9 @@ import { environment } from '../../../../../environments/environment';
 import { CoreModule } from '../../../../core/core.module';
 import { NgbProgressbarModule, NgbProgressbarConfig } from '@ng-bootstrap/ng-bootstrap';
 import { NgxPermissionsModule } from 'ngx-permissions';
-
+import { SignatureFieldComponent } from './products/signature-field/signature-field.component';
+import { SignaturePadModule } from 'angular2-signaturepad';
+import {QuoteExtrasComponent} from './products/quote-extras/quote-extras.component'
 // tslint:disable-next-line:class-name
 const routes: Routes = [
 	{
@@ -134,6 +136,10 @@ const routes: Routes = [
 			{
 				path: 'quotes/edit/:id/room/window',
 				component: WindowEditComponent
+			},
+			{
+				path: 'quotes/edit/:id/room/window/quote-extras',
+				component: QuoteExtrasComponent
 			}
 		]
 	}
@@ -183,6 +189,7 @@ const routes: Routes = [
 		EffectsModule.forFeature([ProductRemarkEffects]),
 		StoreModule.forFeature('productSpecifications', productSpecificationsReducer),
 		EffectsModule.forFeature([ProductSpecificationEffects]),
+		SignaturePadModule
 	],
 	providers: [
 		ModuleGuard,
@@ -234,7 +241,9 @@ const routes: Routes = [
 		SpecificationsListComponent,
 		SpecificationEditDialogComponent,
 		RoomEditComponent,
-		WindowEditComponent
+		WindowEditComponent,
+		SignatureFieldComponent,
+		QuoteExtrasComponent
 	]
 })
 export class ECommerceModule { }
