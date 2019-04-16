@@ -12,7 +12,8 @@ export const locale = {
 			PAGES: 'Pages',
 			FEATURES: 'Features',
 			APPS: 'Apps',
-			DASHBOARD: 'All Quotes',
+			DASHBOARD: 'Dashboard',
+			QUOTES: 'Quotes',
 		},
 		AUTH: {
 			GENERAL: {

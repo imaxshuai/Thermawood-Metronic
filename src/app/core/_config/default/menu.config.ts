@@ -346,11 +346,19 @@ export class MenuConfig {
 			self: {},
 			items: [
 				{
+					title: 'Dashboard',
+					root: true,
+					icon: 'flaticon2-architecture-and-city',
+					page: 'dashboard',
+					translate: 'MENU.DASHBOARD',
+					bullet: 'dot',
+				},
+				{
 					title: 'quotes',
 					root: true,
 					icon: 'fa fa-dollar-sign',
-					page: 'quotes',
-					translate: 'MENU.DASHBOARD',
+					page: 'all/quotes',
+					translate: 'MENU.QUOTES',
 					bullet: 'dot',
 				}
 			]

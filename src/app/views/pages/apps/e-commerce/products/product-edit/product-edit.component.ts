@@ -252,7 +252,9 @@ export class ProductEditComponent implements OnInit, OnDestroy {
 	 * @param withBack: boolean
 	 */
 	onSumbit(withBack: boolean = false) {
-		let url = `/quotes/edit/${this.product.id}/room`;
+		debugger;
+		//let url = `all/quotes/edit/${this.product.id}/room`;
+		let url = `/default/all/quotes/edit/${this.activatedRoute.snapshot.paramMap.get('id')}/room`;
 		this.router.navigateByUrl(url, { relativeTo: this.activatedRoute });
 		return;
 		this.hasFormErrors = false;
