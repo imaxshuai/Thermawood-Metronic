@@ -23,6 +23,9 @@ const routes: Routes = [
 				path: 'lead',
 				loadChildren: 'app/views/pages/lead/lead.module#LeadModule'
 			},{
+				path: 'acceptance',
+				loadChildren: 'app/views/pages/acceptance/acceptance.module#AcceptanceModule'
+			},{
 				path: 'my-page', // <= Page URL
 				component: MyPageComponent // <= Page component registration
 		   	},
