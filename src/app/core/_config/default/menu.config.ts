@@ -354,11 +354,43 @@ export class MenuConfig {
 					bullet: 'dot',
 				},
 				{
+					title: 'lead',
+					root: true,
+					icon: 'fa fa-dollar-sign',
+					page: 'lead',
+					translate: 'MENU.LEAD',
+					bullet: 'dot',
+				},
+				{
 					title: 'quotes',
 					root: true,
 					icon: 'fa fa-dollar-sign',
 					page: 'all/quotes',
 					translate: 'MENU.QUOTES',
+					bullet: 'dot',
+				},
+				{
+					title: 'acceptance',
+					root: true,
+					icon: 'fa fa-dollar-sign',
+					page: 'acceptance',
+					translate: 'MENU.ACCEPTANCE',
+					bullet: 'dot',
+				},
+				{
+					title: 'order',
+					root: true,
+					icon: 'fa fa-dollar-sign',
+					page: 'order',
+					translate: 'MENU.ORDER',
+					bullet: 'dot',
+				},
+				{
+					title: 'invoice',
+					root: true,
+					icon: 'fa fa-dollar-sign',
+					page: 'invoice',
+					translate: 'MENU.INVOICE',
 					bullet: 'dot',
 				}
 			]

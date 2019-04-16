@@ -6,6 +6,12 @@ export class PageConfig {
 				'desc': 'Latest updates and statistic charts'
 			}
 		},
+		'lead': {
+			page: {
+				'title': 'Lead',
+				'desc': 'Latest updates and statistic charts'
+			}
+		},
 		'my-page': { // <= add page URL
 			page: { title: 'My page', desc: 'My page desc' } // <= Page name and description
 		},

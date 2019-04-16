@@ -20,6 +20,9 @@ const routes: Routes = [
 				path: 'dashboard',
 				loadChildren: 'app/views/pages/dashboard/dashboard.module#DashboardModule'
 			},{
+				path: 'lead',
+				loadChildren: 'app/views/pages/lead/lead.module#LeadModule'
+			},{
 				path: 'my-page', // <= Page URL
 				component: MyPageComponent // <= Page component registration
 		   	},
