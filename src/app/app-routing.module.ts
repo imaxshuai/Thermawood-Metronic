@@ -16,8 +16,8 @@ const routes: Routes = [
 	//{path: 'demo2', loadChildren: 'app/views/themes/demo2/theme.module#ThemeModule'},
 	/** END: themes list end */
 
-	{path: '**', redirectTo: 'default/error/403', pathMatch: 'full'},
-	// {path: '**', redirectTo: 'error/403', pathMatch: 'full'},
+	//{path: '**', redirectTo: 'default/error/403', pathMatch: 'full'},
+	{path: '**', redirectTo: 'error/403', pathMatch: 'full'},
 ];
 
 @NgModule({
