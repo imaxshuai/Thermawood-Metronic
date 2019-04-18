@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // Lodash
 import { shuffle } from 'lodash';
 // Services
-import { LayoutConfigService } from '../../../core/_base/layout';
+import { LayoutConfigService,SubheaderService } from '../../../core/_base/layout';
 // Widgets model
 import { SparklineChartOptions } from '../../../core/_base/metronic';
 import { Widget4Data } from '../../partials/content/widgets/widget4/widget4.component';
@@ -23,10 +23,11 @@ export class DashboardComponent implements OnInit {
 	widget4_3: Widget4Data;
 	widget4_4: Widget4Data;
 
-	constructor(private layoutConfigService: LayoutConfigService) {
+	constructor(private layoutConfigService: LayoutConfigService,private subheaderService: SubheaderService,) {
 	}
 
 	ngOnInit(): void {
+		this.subheaderService.setTitle('Dashboard');
 		this.chartOptions1 = {
 			data: [10, 14, 18, 11, 9, 12, 14, 17, 18, 14],
 			color: this.layoutConfigService.getConfig('colors.state.brand'),
