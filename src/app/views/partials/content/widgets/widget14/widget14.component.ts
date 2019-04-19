@@ -41,13 +41,13 @@ export class Widget14Component implements OnInit {
 						// label: 'dataset 1',
 						backgroundColor: this.layoutConfigService.getConfig('colors.state.success'),
 						data: [
-							15, 20, 25, 30, 25, 20, 15, 20, 25, 30, 25, 20, 15, 10, 15, 20
+							5, 10, 15, 20, 15, 10, 5, 10, 15, 50, 15, 10, 5, 0, 5, 10
 						]
 					}, {
 						// label: 'dataset 2',
 						backgroundColor: '#f3f3fb',
 						data: [
-							15, 20, 25, 30, 25, 20, 15, 20, 25, 30, 25, 20, 15, 10, 15, 20
+							5, 10, 15, 20, 15, 10, 5, 10, 15, 20, 15, 10, 5, 0, 5, 10
 						]
 					}
 				]

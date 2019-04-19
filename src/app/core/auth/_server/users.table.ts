@@ -4,14 +4,14 @@ export class UsersTable {
 			id: 1,
 			username: 'admin',
 			password: '123456',
-			email: 'ronnie@gmail.com',
+			email: 'jeremysmith@gmail.com',
 			accessToken: 'access-token-8f3ae836da744329a6f93bf20594b5cc',
 			refreshToken: 'access-token-f8c137a2c98743f48b643e71161d90aa',
 			roles: [1], // Administrator
 			pic: './assets/media/users/300_25.jpg',
-			fullname: 'Ronnie Haque',
+			fullname: 'Jeremy Smith',
 			occupation: 'CEO',
-			companyName: 'Keenthemes',
+			companyName: 'Sales Rep',
 			phone: '456669067890',
 			address: {
 				addressLine: 'L-12-20 Vertex, Cybersquare',

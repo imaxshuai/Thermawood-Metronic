@@ -10,6 +10,7 @@ $accent-color:#c93239;
 body{
     overflow-x: hidden;
     color: #464457 !important;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 .cdk-overlay-container{
     z-index: 9999 !important;
@@ -168,7 +169,29 @@ body{
 }
 .kt-aside-menu .kt-menu__nav>.kt-menu__item>.kt-menu__heading .kt-menu__link-text, .kt-aside-menu .kt-menu__nav>.kt-menu__item>.kt-menu__link .kt-menu__link-text {
     color: white !important;
+    padding-left:5px !important;
 }
 .kt-aside-menu .kt-menu__nav>.kt-menu__item>.kt-menu__heading .kt-menu__link-icon, .kt-aside-menu .kt-menu__nav>.kt-menu__item>.kt-menu__link .kt-menu__link-icon{
+    color: white !important;
+    font-size:1.1rem !important;
+}
+.kt-aside-menu .kt-menu__nav>.kt-menu__item.kt-menu__item--open>.kt-menu__heading, .kt-aside-menu .kt-menu__nav>.kt-menu__item.kt-menu__item--open>.kt-menu__link{
+    background: $primary-deep-color !important;
+}
+.kt-aside-menu .kt-menu__nav>.kt-menu__item .kt-menu__submenu .kt-menu__item>.kt-menu__heading .kt-menu__link-text, .kt-aside-menu .kt-menu__nav>.kt-menu__item .kt-menu__submenu .kt-menu__item>.kt-menu__link .kt-menu__link-text{
+    color: white !important;
+}
+.kt-aside-menu .kt-menu__nav>.kt-menu__item .kt-menu__submenu .kt-menu__item>.kt-menu__heading .kt-menu__link-bullet.kt-menu__link-bullet--dot>span, .kt-aside-menu .kt-menu__nav>.kt-menu__item .kt-menu__submenu .kt-menu__item>.kt-menu__link .kt-menu__link-bullet.kt-menu__link-bullet--dot>span{
+    background: white !important;
+}
+.kt-aside-menu .kt-menu__nav>.kt-menu__item .kt-menu__submenu .kt-menu__item:not(.kt-menu__item--parent):not(.kt-menu__item--open):not(.kt-menu__item--here):not(.kt-menu__item--active):hover>.kt-menu__heading, .kt-aside-menu .kt-menu__nav>.kt-menu__item .kt-menu__submenu .kt-menu__item:not(.kt-menu__item--parent):not(.kt-menu__item--open):not(.kt-menu__item--here):not(.kt-menu__item--active):hover>.kt-menu__link{
+    background: $primary-deep-color !important;
+}
+
+.btn.btn-label-brand{
+    color:#434349 !important;
+}
+a.btn.btn-label-brand:focus, a.btn.btn-label-brand:hover, a.btn.btn-label-brand.active, button.btn.btn-label-brand:focus, button.btn.btn-label-brand:hover, button.btn.btn-label-brand.active, input.btn.btn-label-brand:focus, input.btn.btn-label-brand:hover, input.btn.btn-label-brand.active{
+    background: $accent-color !important;
     color: white !important;
 }

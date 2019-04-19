@@ -51,7 +51,7 @@ export class Widget12Component implements OnInit {
 						pointHoverBackgroundColor: this.layoutConfigService.getConfig('colors.state.brand'),
 						pointHoverBorderColor: Chart.helpers.color('#000000').alpha(0.1).rgbString(),
 
-						data: [20, 40, 50, 25, 35, 60, 30]
+						data: [10, 30, 40, 15, 25, 50, 20]
 					},
 					{
 						fill: true,
@@ -66,7 +66,7 @@ export class Widget12Component implements OnInit {
 						pointHoverBackgroundColor: this.layoutConfigService.getConfig('colors.state.brand'),
 						pointHoverBorderColor: Chart.helpers.color('#000000').alpha(0.1).rgbString(),
 
-						data: [25, 45, 55, 30, 40, 65, 35]
+						data: [15, 35, 45, 20, 30, 55, 25]
 					}
 				]
 			};

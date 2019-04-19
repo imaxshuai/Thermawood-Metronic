@@ -348,7 +348,7 @@ export class MenuConfig {
 				{
 					title: 'Dashboard',
 					root: true,
-					icon: 'flaticon2-architecture-and-city',
+					icon: 'fa fa-chart-bar',
 					page: '/dashboard',
 					translate: 'MENU.DASHBOARD',
 					bullet: 'dot',
@@ -356,7 +356,7 @@ export class MenuConfig {
 				{
 					title: 'Lead',
 					root: true,
-					icon: 'fa fa-people-carry',
+					icon: 'fa fa-comments-dollar',
 					page: '/lead',
 					translate: 'MENU.LEAD',
 					bullet: 'dot',
@@ -364,7 +364,7 @@ export class MenuConfig {
 				{
 					title: 'Quotes',
 					root: true,
-					icon: 'fa fa-dollar-sign',
+					icon: 'fa fa-search-dollar',
 					page: '/all/quotes',
 					translate: 'MENU.QUOTES',
 					bullet: 'dot',
@@ -372,7 +372,7 @@ export class MenuConfig {
 				{
 					title: 'Acceptance',
 					root: true,
-					icon: 'fa fa-check-square',
+					icon: 'fa fa-handshake',
 					page: '/acceptance',
 					translate: 'MENU.ACCEPTANCE',
 					bullet: 'dot',
@@ -380,7 +380,7 @@ export class MenuConfig {
 				{
 					title: 'Order',
 					root: true,
-					icon: 'fa fa-gavel',
+					icon: 'fa fa-industry',
 					page: 'order',
 					translate: 'MENU.ORDER',
 					bullet: 'dot',
@@ -388,10 +388,26 @@ export class MenuConfig {
 				{
 					title: 'Invoice',
 					root: true,
-					icon: 'fa fa-envelope',
+					icon: 'fa fa-file-invoice-dollar',
 					page: 'invoice',
 					translate: 'MENU.INVOICE',
 					bullet: 'dot',
+				},
+				{
+					title: 'Admin',
+					root: true,
+					bullet: 'dot',
+					icon: 'fa fa-user-cog',
+					submenu: [
+						{
+							title: 'Customer',
+							page: '/customer'
+						},
+						{
+							title: 'Users',
+							page: '/users'
+						}
+					]
 				}
 			]
 		}

@@ -32,11 +32,11 @@ export class LayoutConfig {
 		// == Colors for javascript
 		'colors': {
 			'state': {
-				'brand': '#5d78ff',
+				'brand': '#006D41',
 				'dark': '#282a3c',
 				'light': '#ffffff',
 				'primary': '#5867dd',
-				'success': '#34bfa3',
+				'success': '#c93239',
 				'info': '#36a3f7',
 				'warning': '#ffb822',
 				'danger': '#fd3995'
