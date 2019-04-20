@@ -1,90 +1,22 @@
 <kt-portlet>
-
-	<kt-portlet-header [title]="'List'" [class]="'kt-portlet__head--lg'" [viewLoading$]="dataSource.loading$">
+		
+	<kt-portlet-header [class]="'kt-portlet__head--lg'" [viewLoading$]="dataSource.loading$">
+			<ng-container ktPortletTitle>
+					<mat-form-field class="mat-form-field-fluid">
+							<input matInput placeholder="Search Quote" #searchInput placeholder="Search" class="mat-form-field mat-form-field-fluid">
+						</mat-form-field>
+				</ng-container>
 		<ng-container ktPortletTools>
-			<button [routerLink]="['../quotes/add']" mat-raised-button color="primary" matTooltip="New Quote">New Quote</button>
+			<button [routerLink]="['../quotes/add']" mat-raised-button color="primary" matTooltip="New Quote">
+				<i class="fa fa-plus"></i>
+				New
+				
+			</button>
 		</ng-container>
 	</kt-portlet-header>
 	<!-- end::Header -->
 
 	<kt-portlet-body>
-		<!-- start::FILTERS & GROUP ACTIONS -->
-		<div class="kt-form">
-			<!-- start::FILTERS -->
-			<div class="kt-form__filtration">
-				<div class="row align-items-center">
-					<!-- <div class="col-md-2 kt-margin-bottom-10-mobile">
-
-						<div class="kt-form__control">
-							<mat-form-field>
-								<mat-select [(value)]="filterStatus" (selectionChange)="loadProductsList()" class="mat-form-field mat-form-field-fluid">
-									<mat-option value="">All</mat-option>
-									<mat-option value="0">Selling</mat-option>
-									<mat-option value="1">Sold</mat-option>
-								</mat-select>
-								<mat-hint align="start">
-									<strong>Filter by Status</strong>
-								</mat-hint>
-							</mat-form-field>
-						</div>
-
-					</div> -->
-					<!-- <div class="col-md-2 kt-margin-bottom-10-mobile">
-						<div class="kt-form__control">
-							<mat-form-field>
-								<mat-select [(value)]="filterCondition" (selectionChange)="loadProductsList()" class="mat-form-field mat-form-field-fluid">
-									<mat-option value="">All</mat-option>
-									<mat-option value="0">New</mat-option>
-									<mat-option value="1">Used</mat-option>
-								</mat-select>
-								<mat-hint align="start">
-									<strong>Filter by Contidion</strong>
-								</mat-hint>
-							</mat-form-field>
-						</div>
-						<div class="d-md-none kt-margin-bottom-10"></div>
-					</div> -->
-					<div class="col-md-4 kt-margin-bottom-10-mobile">
-						<mat-form-field>
-							<input matInput placeholder="Search product" #searchInput placeholder="Search" class="mat-form-field mat-form-field-fluid">
-							<mat-hint align="start">
-								<strong>Search in all fields</strong>
-							</mat-hint>
-						</mat-form-field>
-					</div>
-				</div>
-			</div>
-			<!-- end::FILTERS -->
-
-			<!-- start::GROUP ACTIONS -->
-			<!-- Group actions list: 'Delete selected' | 'Fetch selected' | 'Update status for selected' -->
-			<!-- Group actions are shared for all LISTS | See '../../_shared' folder -->
-			<div class="row align-items-center collapse kt-form__group-actions kt-margin-top-20 kt-margin-bottom-20" [ngClass]="{'show' : selection.selected.length > 0}">
-				<div class="col-xl-12">
-					<div class="kt-form__group kt-form__group--inline">
-						<div class="kt-form__label kt-form__label-no-wrap">
-							<label class="kt--font-bold kt-font-danger-">Selected records count: {{ selection.selected.length }}</label>
-						</div>
-						<div class="kt-form__control kt-form__group--inline">
-							<button mat-raised-button color="accent" (click)="deleteProducts()" matTooltip="Delete selected products"  class="mat-button-mt-4">
-								<mat-icon>delete</mat-icon>
-								Delete All
-							</button>&nbsp;<!-- Call 'delete-entity-dialog' from _shared folder -->
-							<button mat-raised-button (click)="fetchProducts()" matTooltip="Fetch selected products"  class="mat-button-mt-4">
-								<mat-icon>clear_all</mat-icon>
-								Fetch Selected Records
-							</button>&nbsp;<!-- Call 'fetch-entity-dialog' from _shared folder -->
-							<button mat-raised-button (click)="updateStatusForProducts()" matTooltip="Update status for selected products"  class="mat-button-mt-4">
-								<mat-icon>update</mat-icon>
-								Update status
-							</button><!-- Call 'update-stated-dialog' from _shared folder -->
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end::GROUP ACTIONS -->
-		</div>
-		<!-- end::FILTERS & GROUP ACTIONS -->
 
 		<!-- MATERIAL TABLE | Binded to datasources -->
 		<!-- See off.documentations 'https://material.angular.io/components/table/overview' -->
@@ -92,7 +24,7 @@
 			<!-- Checkbox Column -->
 			<!-- Table with selection -->
 			<!-- https://run.stackblitz.com/api/angular/v1?file=app%2Ftable-selection-example.ts -->
-			<mat-table class="lmat-elevation-z8"
+			<mat-table class="lmat-elevation-z8 quote-list"
 				#table
 				[dataSource]="dataSource"
 				matSort

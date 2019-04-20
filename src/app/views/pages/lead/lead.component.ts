@@ -1,12 +1,13 @@
 // Angular
-import { Component, OnInit } from '@angular/core';
-// Lodash
-import { shuffle } from 'lodash';
+import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
 // Services
 import { LayoutConfigService, SubheaderService } from '../../../core/_base/layout';
-// Widgets model
-import { SparklineChartOptions } from '../../../core/_base/metronic';
-import { Widget4Data } from '../../partials/content/widgets/widget4/widget4.component';
+
+import { Subscription, fromEvent } from 'rxjs';
+import { debounceTime, distinctUntilChanged, tap } from 'rxjs/operators';
+
+import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+
 export interface ILead {
 	position:number,
 	salesRep: string;
@@ -31,13 +32,64 @@ export interface ILead {
 	styleUrls: ['lead.component.scss'],
 })
 export class LeadComponent implements OnInit {
-	
+	@ViewChild('searchInput') searchInput: ElementRef;
+	private subscriptions: Subscription[] = [];
 	displayedColumns: string[] = ['salesRep', 'date', 'customer','address', 'subrub', 'city','postcode', 'phone', 'email','joineryType'];
     dataSource = LEAD_DATA;
-	constructor(private layoutConfigService: LayoutConfigService,private subheaderService:SubheaderService) {
+	constructor(private layoutConfigService: LayoutConfigService,private subheaderService:SubheaderService,public dialog: MatDialog) {
 	}
 
 	ngOnInit(): void {
+		// Filtration, bind to searchInput
+		const searchSubscription = fromEvent(this.searchInput.nativeElement, 'keyup').pipe(
+			debounceTime(150),
+			distinctUntilChanged(),
+			tap(() => {
+				this.dataSource = LEAD_DATA;
+			})
+		)
+		.subscribe();
+		this.subscriptions.push(searchSubscription);
 		this.subheaderService.setTitle('Lead');
 	}
+	leadModal(){
+		const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = true;
+  dialogConfig.autoFocus = true;
+  
+  dialogConfig.data = {
+    id: 1,
+    title: 'Angular For Beginners'
+	};
+  const dialogRef = this.dialog.open(DialogContentExampleDialog,dialogConfig);
+  dialogRef.afterClosed().subscribe(result => {
+    
+  });
+	}
+}
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: './dialog.html',
+})
+export class DialogContentExampleDialog {
+  discount: string;
+  seasons: object[] = [
+      {name:'No Discount',value:0}, 
+      {name:'Staff (15%)',value:15}, 
+      {name:'Friends and Family (12.5%)',value:12.5}, 
+      {name:'Custom',value:0}
+    ];
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+  private dialogRef: MatDialogRef<DialogContentExampleDialog>
+  ) { }
+  save() {
+    this.dialogRef.close({event:this.discount});
+  }
+  close() {
+    this.dialogRef.close();
+  }
+  onInputChange(event){
+    this.discount = event.value;
+    console.log(event.value);
+  }
 }

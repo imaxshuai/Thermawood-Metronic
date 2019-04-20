@@ -55,6 +55,9 @@ body{
     }
     
 }
+.mat-button.mat-warn, .mat-icon-button.mat-warn, .mat-stroked-button.mat-warn{
+    color: $accent-color !important;
+}
 .kt-aside__brand .kt-aside__brand-tools .kt-aside__brand-aside-toggler svg g [fill] {
     fill: #efefef !important;
 }
@@ -194,4 +197,17 @@ body{
 a.btn.btn-label-brand:focus, a.btn.btn-label-brand:hover, a.btn.btn-label-brand.active, button.btn.btn-label-brand:focus, button.btn.btn-label-brand:hover, button.btn.btn-label-brand.active, input.btn.btn-label-brand:focus, input.btn.btn-label-brand:hover, input.btn.btn-label-brand.active{
     background: $accent-color !important;
     color: white !important;
+}
+.quote-list{
+    mat-header-cell{
+        &:last-child{
+            padding-left: 20px !important;
+        }
+    }    
+}
+.mat-table{
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+.kt-loading-bar .progress-bar {
+    background: $primary-color !important;
 }

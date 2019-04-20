@@ -1,62 +1,78 @@
 
 
 <kt-portlet>
-	<kt-portlet-body [class]="'kt-portlet__body--fit'">
-		<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+		<kt-portlet-header [class]="'kt-portlet__head--lg'">
+				<ng-container ktPortletTitle>
+						<mat-form-field class="mat-form-field-fluid">
+								<input matInput placeholder="Search Lead" #searchInput placeholder="Search" class="mat-form-field mat-form-field-fluid">
+							</mat-form-field>
+					</ng-container>
+			<ng-container ktPortletTools>
+				<button (click)="leadModal()" mat-raised-button color="primary" matTooltip="New Lead">
+					<i class="fa fa-plus"></i>
+					New
+				</button>
+			</ng-container>
+		</kt-portlet-header>
+	<kt-portlet-body>
+		<div class="mat-table__wrapper">
+				<table mat-table [dataSource]="dataSource" class="lmat-elevation-z8">
 
-			<!--- Note that these columns can be defined in any order.
-				  The actual rendered columns are set as a property on the row definition" -->
-		  
-			<!-- Position Column -->
-			<ng-container matColumnDef="salesRep">
-			  <th mat-header-cell *matHeaderCellDef> Sales Rep </th>
-			  <td mat-cell *matCellDef="let element"> {{element.salesRep}} </td>
-			</ng-container>
-		  
-			<!-- Name Column -->
-			<ng-container matColumnDef="date">
-			  <th mat-header-cell *matHeaderCellDef> Date </th>
-			  <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-			</ng-container>
-		  
-			<!-- Weight Column -->
-			<ng-container matColumnDef="customer">
-			  <th mat-header-cell *matHeaderCellDef> Customer </th>
-			  <td mat-cell *matCellDef="let element"> {{element.customer}} </td>
-			</ng-container>
-		  
-			<!-- Symbol Column -->
-			<ng-container matColumnDef="address">
-			  <th mat-header-cell *matHeaderCellDef> Address </th>
-			  <td mat-cell *matCellDef="let element"> {{element.address}} </td>
-			</ng-container>
-			<ng-container matColumnDef="subrub">
-				<th mat-header-cell *matHeaderCellDef> Subrub </th>
-				<td mat-cell *matCellDef="let element"> {{element.subrub}} </td>
-			  </ng-container>
-			  <ng-container matColumnDef="city">
-				<th mat-header-cell *matHeaderCellDef> City </th>
-				<td mat-cell *matCellDef="let element"> {{element.city}} </td>
-			  </ng-container>
-			  <ng-container matColumnDef="postcode">
-				<th mat-header-cell *matHeaderCellDef> Postcode </th>
-				<td mat-cell *matCellDef="let element"> {{element.postcode}} </td>
-			  </ng-container>
-			  <ng-container matColumnDef="phone">
-				<th mat-header-cell *matHeaderCellDef> Phone </th>
-				<td mat-cell *matCellDef="let element"> {{element.phone}} </td>
-			  </ng-container>
-			  <ng-container matColumnDef="email">
-				<th mat-header-cell *matHeaderCellDef> Email </th>
-				<td mat-cell *matCellDef="let element"> {{element.email}} </td>
-			  </ng-container>
-			  <ng-container matColumnDef="joineryType">
-				<th mat-header-cell *matHeaderCellDef> Joinery Type </th>
-				<td mat-cell *matCellDef="let element"> {{element.joineryType}} </td>
-			  </ng-container>
-			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-			<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-		  </table>
+						<!--- Note that these columns can be defined in any order.
+								The actual rendered columns are set as a property on the row definition" -->
+						
+						<!-- Position Column -->
+						<ng-container matColumnDef="salesRep">
+							<th mat-header-cell *matHeaderCellDef> Sales Rep </th>
+							<td mat-cell *matCellDef="let element"> {{element.salesRep}} </td>
+						</ng-container>
+						
+						<!-- Name Column -->
+						<ng-container matColumnDef="date">
+							<th mat-header-cell *matHeaderCellDef> Date </th>
+							<td mat-cell *matCellDef="let element"> {{element.date}} </td>
+						</ng-container>
+						
+						<!-- Weight Column -->
+						<ng-container matColumnDef="customer">
+							<th mat-header-cell *matHeaderCellDef> Customer </th>
+							<td mat-cell *matCellDef="let element"> {{element.customer}} </td>
+						</ng-container>
+						
+						<!-- Symbol Column -->
+						<ng-container matColumnDef="address">
+							<th mat-header-cell *matHeaderCellDef> Address </th>
+							<td mat-cell *matCellDef="let element"> {{element.address}} </td>
+						</ng-container>
+						<ng-container matColumnDef="subrub">
+							<th mat-header-cell *matHeaderCellDef> Subrub </th>
+							<td mat-cell *matCellDef="let element"> {{element.subrub}} </td>
+							</ng-container>
+							<ng-container matColumnDef="city">
+							<th mat-header-cell *matHeaderCellDef> City </th>
+							<td mat-cell *matCellDef="let element"> {{element.city}} </td>
+							</ng-container>
+							<ng-container matColumnDef="postcode">
+							<th mat-header-cell *matHeaderCellDef> Postcode </th>
+							<td mat-cell *matCellDef="let element"> {{element.postcode}} </td>
+							</ng-container>
+							<ng-container matColumnDef="phone">
+							<th mat-header-cell *matHeaderCellDef> Phone </th>
+							<td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+							</ng-container>
+							<ng-container matColumnDef="email">
+							<th mat-header-cell *matHeaderCellDef> Email </th>
+							<td mat-cell *matCellDef="let element"> {{element.email}} </td>
+							</ng-container>
+							<ng-container matColumnDef="joineryType">
+							<th mat-header-cell *matHeaderCellDef> Joinery Type </th>
+							<td mat-cell *matCellDef="let element"> {{element.joineryType}} </td>
+							</ng-container>
+						<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+						<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+						</table>
+		</div>
+
 		  
 	</kt-portlet-body>
 </kt-portlet>

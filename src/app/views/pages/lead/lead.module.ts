@@ -7,13 +7,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // Core Module
 import { CoreModule } from '../../../core/core.module';
 import { PartialsModule } from '../../partials/partials.module';
-import { LeadComponent } from './lead.component';
-import { MatTableModule } from '@angular/material';
+import { LeadComponent,DialogContentExampleDialog } from './lead.component';
+import { MatTableModule,MatInputModule,MatButtonModule,MatDialogModule } from '@angular/material';
 @NgModule({
 	imports: [
 		CommonModule,
 		PartialsModule,
 		MatTableModule,
+		MatInputModule,
+		MatButtonModule,
+		MatDialogModule,
 		CoreModule,
 		NgbModule,
 		RouterModule.forChild([
@@ -26,7 +29,10 @@ import { MatTableModule } from '@angular/material';
 	providers: [],
 	declarations: [
 		LeadComponent,
-	]
+		DialogContentExampleDialog
+	],
+	entryComponents: [DialogContentExampleDialog]
 })
 export class LeadModule {
+
 }
