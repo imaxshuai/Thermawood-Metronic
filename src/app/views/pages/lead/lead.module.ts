@@ -8,7 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CoreModule } from '../../../core/core.module';
 import { PartialsModule } from '../../partials/partials.module';
 import { LeadComponent,DialogContentExampleDialog } from './lead.component';
-import { MatTableModule,MatInputModule,MatButtonModule,MatDialogModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatTableModule,MatInputModule,MatButtonModule,MatDialogModule,MatIconModule } from '@angular/material';
 @NgModule({
 	imports: [
 		CommonModule,
@@ -17,6 +19,9 @@ import { MatTableModule,MatInputModule,MatButtonModule,MatDialogModule } from '@
 		MatInputModule,
 		MatButtonModule,
 		MatDialogModule,
+		MatIconModule,
+		MatDatepickerModule,
+		FormsModule,
 		CoreModule,
 		NgbModule,
 		RouterModule.forChild([

@@ -1,9 +1,83 @@
-<h2 mat-dialog-title>Discount</h2>
+<h2 mat-dialog-title style="border-bottom:1px solid #ddd">{{data.title}}</h2>
 <mat-dialog-content class="mat-typography">
-  test
+
+<form>
+    <div class="kt-form__section kt-form__section--first">
+        <div class="kt-form__group">
+          <div class="row">
+
+            <div class="col-md-6 kt-margin-bottom-10-mobile">
+              <mat-form-field class="mat-form-field-fluid">
+                <input matInput placeholder="Enter Sales Rep" name="salesRep" [(ngModel)]="model.salesRep">
+              </mat-form-field>
+            </div>
+            <div class="col-md-6 kt-margin-bottom-10-mobile">
+              <!-- <mat-form-field >
+                <input matInput placeholder="Enter Date" name="date" [(ngModel)]="model.date">
+              </mat-form-field> -->
+              <mat-form-field class="mat-form-field-fluid">
+                  <input matInput [matDatepicker]="picker" name="date"  [(ngModel)]="model.date" placeholder="Choose a Date">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6 kt-margin-bottom-10-mobile">
+                <mat-form-field class="mat-form-field-fluid">
+                    <input matInput placeholder="Enter Customer" name="customer" [(ngModel)]="model.customer">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 kt-margin-bottom-10-mobile">
+                  <mat-form-field class="mat-form-field-fluid">
+                    <input matInput placeholder="Enter Address"  name="address" [(ngModel)]="model.address">
+                  </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+            
+                <div class="col-md-6 kt-margin-bottom-10-mobile">
+                    <mat-form-field class="mat-form-field-fluid">
+                      <input matInput placeholder="Enter Subrub" name="subrub" [(ngModel)]="model.subrub">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-6 kt-margin-bottom-10-mobile">
+                      <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter City" name="city" [(ngModel)]="model.city">
+                      </mat-form-field>
+                    </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 kt-margin-bottom-10-mobile">
+                      <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Post Code" name="postcode" [(ngModel)]="model.postcode">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 kt-margin-bottom-10-mobile">
+                        <mat-form-field class="mat-form-field-fluid">
+                          <input matInput placeholder="Enter Phone" name="phone" [(ngModel)]="model.phone">
+                        </mat-form-field>
+                      </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6 kt-margin-bottom-10-mobile">
+                      <mat-form-field class="mat-form-field-fluid">
+                        <input matInput placeholder="Enter Email" name="email" [(ngModel)]="model.email">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-6 kt-margin-bottom-10-mobile">
+                        <mat-form-field class="mat-form-field-fluid">
+                          <input matInput placeholder="Enter Joinery Type" name="joineryType" [(ngModel)]="model.joineryType">
+                        </mat-form-field>
+                      </div>
+                </div>
+        </div>
+        </div>
+
+</form>
     
 </mat-dialog-content>
 <mat-dialog-actions align="End">
   <button mat-button (click)="close()">Cancel</button>
-  <button mat-button mat-raised-button color="primary" (click)="save()" cdkFocusInitial>Save</button>
+  <button mat-button mat-raised-button color="primary" class="lead-btn" (click)="save()">Save</button>
 </mat-dialog-actions>
