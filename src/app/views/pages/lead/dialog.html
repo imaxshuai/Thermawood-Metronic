@@ -1,7 +1,7 @@
 <h2 mat-dialog-title style="border-bottom:1px solid #ddd">{{data.title}}</h2>
 <mat-dialog-content class="mat-typography">
 
-<form>
+<form *ngIf="data.title!=='Delete Lead'">
     <div class="kt-form__section kt-form__section--first">
         <div class="kt-form__group">
           <div class="row">
@@ -75,9 +75,12 @@
         </div>
 
 </form>
-    
+<div *ngIf="data.title==='Delete Lead'">
+  <h4>Are you sure you want to delete this Lead.</h4>
+</div>
 </mat-dialog-content>
 <mat-dialog-actions align="End">
   <button mat-button (click)="close()">Cancel</button>
-  <button mat-button mat-raised-button color="primary" class="lead-btn" (click)="save()">Save</button>
+  <button *ngIf="data.title!=='Delete Lead'" mat-button mat-raised-button color="primary" class="lead-btn" (click)="save()">Save</button>
+  <button  *ngIf="data.title==='Delete Lead'" mat-button mat-raised-button color="primary" class="lead-btn" (click)="save()">Delete</button>
 </mat-dialog-actions>

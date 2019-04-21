@@ -90,8 +90,28 @@ export class LeadComponent implements OnInit {
   dialogRef.afterClosed().subscribe(result => {
 		if(result){
 			this.dataSource  =  Object.assign([], this.dataSource);
-		this.dataSource.push(result);
-		this.changeDetectorRefs.detectChanges();
+			this.dataSource[index] = result;
+		  this.changeDetectorRefs.detectChanges();
+		}
+  });
+	}
+	deleteLeadModal(index){
+		let currentInddex = index;
+		const dialogConfig = new MatDialogConfig();
+  dialogConfig.disableClose = true;
+  dialogConfig.autoFocus = true;
+  
+  dialogConfig.data = {
+    id: 1,
+		title: 'Delete Lead',
+		dataSource:this.dataSource[index]
+	};
+  const dialogRef = this.dialog.open(DialogContentExampleDialog,dialogConfig);
+  dialogRef.afterClosed().subscribe(result => {
+		if(result){
+			this.dataSource  =  Object.assign([], this.dataSource);
+			this.dataSource.splice(currentInddex,1);
+		  this.changeDetectorRefs.detectChanges();
 		}
   });
 	}
@@ -126,7 +146,7 @@ export class DialogContentExampleDialog {
   private dialogRef: MatDialogRef<DialogContentExampleDialog>
   ) { 
 		if(this.data.dataSource){
-			this.data.dataSource.date = new Date(this.data.dataSource.date);
+			this.data.dataSource.date = this.data.dataSource.date && new Date(this.data.dataSource.date);
 			this.model = this.data.dataSource;
 		}
 	}
